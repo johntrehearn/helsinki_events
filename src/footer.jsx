@@ -4,7 +4,7 @@ const Footer = () => {
     return <div>
         <div className='footer'>
 
-        <h1>&copy Team 3</h1>
+        <h3>&copy; Team 3</h3>
       
         </div>
     </div>
