@@ -13,8 +13,10 @@ const Banner = () => {
         <div>
           <input onChange={search} type="text" placeholder="search..." />
         </div>
+        <button>TOMORROW</button>
+        <button>WEEKEND</button>
 
-        <div>
+        {/* <div>
           <label htmlFor="month">
             <select name="month" id="month">
               <option value="january">January</option>
@@ -31,7 +33,7 @@ const Banner = () => {
               <option value="december">December</option>
             </select>
           </label>
-        </div>
+        </div> */}
       </div>
     </div>
   );
