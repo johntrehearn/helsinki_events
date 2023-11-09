@@ -16,7 +16,7 @@ function EventModal() {
           <h3>Location:</h3>
           <p>Street 12 | Kallio | HELSINKI</p>
           <h3>Time:</h3>
-          <p>Friday | 24/11/2023</p>
+          <p>Friday | Nov 24, 2023</p>
           <h3>Price:</h3>
           <p>FREE</p>
           <h3>Homepage:</h3>
