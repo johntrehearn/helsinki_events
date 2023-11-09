@@ -1,15 +1,19 @@
+
 import Header from './Header'
 import Footer from './footer'
+import Banner from './Banner'
+import CategorySection from './CategorySection'
 
 function App() {
 
   return (
     <>
-    <Header/>
-      
+      <Header/>
+      <Banner />
+      <CategorySection />
       <Footer/>
     </>
   )
 }
 
-export default App
+export default App;
