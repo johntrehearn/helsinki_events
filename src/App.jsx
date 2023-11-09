@@ -1,7 +1,12 @@
+import CategorySection from './CategorySection'
+
 function App() {
 
   return (
-      <div></div>
+    <>
+      <CategorySection />
+    </>
+    
   )
 }
 
