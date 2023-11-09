@@ -1,10 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import Banner from './Banner'
+import CategorySection from './CategorySection'
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  return <></>;
+  return (
+    <>
+      <Banner />
+      <CategorySection />
+    </>
+  )
 }
 
 export default App;

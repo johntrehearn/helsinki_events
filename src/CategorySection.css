@@ -1,0 +1,54 @@
+.iconCategoryWrapper {
+    display: flex;
+    width: 80rem;
+    height: 10.375rem;
+    justify-content: center;
+    align-items: center;
+    gap: 4.6875rem;
+    flex-shrink: 0;
+    background-color: #f2f2f2;
+}
+
+.iconCategoryCard {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.iconCategoryCardImageWrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 107px;
+    width: 107px;
+    border-radius: 50%;
+    background: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #dee5ff;
+}
+
+.iconCategoryCardImageWrapper:hover {
+    border: 1px solid #073af2;
+}
+
+.iconCategoryCardImageWrapper img {
+    width: 48px;
+    height: 48px;
+}
+
+.iconCategoryCardTitle {
+    font-size: 12px;
+    color: #333;
+}
