@@ -6,9 +6,15 @@ import Map from "./Map";
 import CategorySection from "./CategorySection";
 
 function App() {
+  const [search, setSearch] = useState("");
+
+  function handleSearch(e) {
+    setSearch(e.target.value);
+  }
+
   return (
     <>
-      <Header />
+      <Header onchange={handleSearch} />
       <Banner />
       <CategorySection />
       <EventModal />

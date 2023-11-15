@@ -1,7 +1,7 @@
-import { search } from "./search";
 import "./banner.css";
+import Search from "./Search";
 
-const Banner = () => {
+const Banner = ({ onchange }) => {
   return (
     <div className="banner">
       <div className="img-wrap">
@@ -11,7 +11,7 @@ const Banner = () => {
 
       <div className="inputs">
         <div>
-          <input onChange={search} type="text" placeholder="search..." />
+          <Search onchange={onchange} />
         </div>
         <button>TOMORROW</button>
         <button>WEEKEND</button>
