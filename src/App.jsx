@@ -1,3 +1,4 @@
+import { useState } from "react";
 import EventModal from "./EventModal";
 import Header from "./Header";
 import Footer from "./footer";
@@ -14,8 +15,8 @@ function App() {
 
   return (
     <>
-      <Header onchange={handleSearch} />
-      <Banner />
+      <Header />
+      <Banner onchange={handleSearch} />
       <CategorySection />
       <EventModal />
       <Map />
