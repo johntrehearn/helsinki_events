@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 5px 0 0 0;
+}
+
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(153, 153, 153);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all ease 0.15s;
+}
+
+.close-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-size: 32px;
+  color: white;
+}
+
+.event-title {
+  text-transform: uppercase;
+  text-wrap: balance; /* only some browser support */
+}
+
+h2,
+p {
+  padding-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.modal {
+  min-height: 90%;
+  width: 90%;
+  margin: 60px auto; /* remove later */
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.img-wrap,
+.highlights {
+  height: 500px;
+}
+
+.highlights {
+  padding: 40px 50px 0 40px;
+}
+
+.description {
+  padding: 30px 40px;
+  background-color: #f7f7f7;
+  border-radius: 0 0 5px 5px;
+}
+
+@media (max-width: 1000px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .description {
+    border-top: 3px dashed #777;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .modal img {
+    border-radius: 5px 5px 0 0;
+  }
+  .img-wrap,
+  .highlights {
+    min-height: 500px;
+  }
+}
