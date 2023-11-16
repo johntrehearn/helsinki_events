@@ -1,5 +1,5 @@
-import './card.css';
-import sampleImg from './assets/coffee.jpg';
+import '../styles/card.css';
+import sampleImg from '../assets/coffee.jpg';
 
 function Card() {
     return (

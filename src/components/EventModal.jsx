@@ -1,4 +1,4 @@
-import "./eventModal.css";
+import "../styles/eventModal.css";
 
 function EventModal() {
   return (

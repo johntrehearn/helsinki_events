@@ -1,4 +1,4 @@
-import "./banner.css";
+import "../styles/banner.css";
 import Search from "./Search";
 
 const Banner = ({ onchange }) => {

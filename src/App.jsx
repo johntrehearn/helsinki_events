@@ -1,11 +1,11 @@
 import { useState } from "react";
-import EventModal from "./EventModal";
-import Header from "./Header";
-import Footer from "./footer";
-import Banner from "./Banner";
-import CategorySection from "./CategorySection";
-import CardsBucket from './CardsBucket'
-import useFetch from './useFetch'
+import EventModal from "./components/EventModal";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import Banner from "./components/Banner";
+import CategorySection from "./components/CategorySection";
+import CardsBucket from './components/CardsBucket'
+import useFetch from './components/useFetch'
 
 function App() {
   const event = useFetch("https://api.hel.fi/linkedevents/v1/event/");
