@@ -1,5 +1,5 @@
 import Card from "./Card"
-import './cardsBucket.css'
+import '../styles/cardsBucket.css'
 
 function CardsBucket() {
     return (

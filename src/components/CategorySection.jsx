@@ -1,5 +1,5 @@
-import './CategorySection.css'
-import sampleIcon from './assets/nightlifeIcon.svg'
+import '../styles/CategorySection.css'
+import sampleIcon from '../assets/nightlifeIcon.svg'
 
 function CategorySection() {
     return (
