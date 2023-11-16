@@ -4,7 +4,7 @@
 
 img {
   width: 100%;
-  height: 500px;
+  height: 400px;
   object-fit: cover;
   border-radius: 5px 0 0 0;
 }
@@ -40,29 +40,40 @@ img {
 
 h2,
 p {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 h2 {
-  font-size: 24px;
-}
-
-h3 {
   font-size: 20px;
 }
 
-p {
+h3 {
   font-size: 18px;
+}
+
+p {
+  font-size: 14px;
   margin-left: 20px;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .modal {
-  min-height: 90%;
-  width: 90%;
-  margin: 60px auto; /* remove later */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
   background-color: white;
-  border-radius: 5px;
-  position: relative;
+  color: #333;
 }
 
 .flex-container {
@@ -71,7 +82,7 @@ p {
 
 .img-wrap,
 .highlights {
-  height: 500px;
+  height: 400px;
 }
 
 .highlights {
