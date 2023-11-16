@@ -1,0 +1,18 @@
+.eventCards {
+    background-color: #f2f2f2;
+    padding: 15px 15px;
+    margin-top: 5px;    
+}
+
+.eventCardsBucket {
+    margin-left: 400rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    gap: 4.375rem;
+    margin: 0;
+    padding: 0;
+}

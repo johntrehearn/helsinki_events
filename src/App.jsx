@@ -3,8 +3,9 @@ import EventModal from "./EventModal";
 import Header from "./Header";
 import Footer from "./footer";
 import Banner from "./Banner";
-import Map from "./Map";
 import CategorySection from "./CategorySection";
+import CardsBucket from './CardsBucket'
+
 
 function App() {
   const [search, setSearch] = useState("");
@@ -18,8 +19,8 @@ function App() {
       <Header />
       <Banner onchange={handleSearch} />
       <CategorySection />
+      <CardsBucket />
       <EventModal />
-      <Map />
       <Footer />
     </>
   );
