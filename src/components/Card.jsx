@@ -1,18 +1,18 @@
 import '../styles/card.css';
 import sampleImg from '../assets/coffee.jpg';
 
-function Card() {
+function Card({name, date, hour, area}) {
+
     return (
         <div className="eventCard">
             <img src={sampleImg} alt="sample image" className='eventCardImg'></img>
             <section className="eventCardDetails">
-                <h2>Event name</h2>
+                <h2>{name}</h2>
                 <p>
-                    <span>Date</span>
-                    <span>, </span>
-                    <span>Hour</span>    
+                    <span>{date}</span>
+                    <span>{hour}</span>
                 </p>
-                <p>Area</p>
+                <p>{area}</p>
             </section>
         </div>
     )
