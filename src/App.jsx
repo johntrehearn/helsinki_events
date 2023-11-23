@@ -15,21 +15,23 @@ function App() {
     { id: 3, name: 'John Party', date: '31.12.2025', hour: '11:00', area: 'Vallila'},
   ]);
 
+  const event = useFetch("https://api.hel.fi/linkedevents/v1/event/?on_going/");
+  /* https://api.hel.fi/linkedevents/v1/event/ */
+  /* https://api.hel.fi/linkedevents/v1/event/?on_going */
 
+  let eventData = event.data
+  console.log(eventData)
+  let eventDataArr = eventData.data
+  console.log(eventDataArr)
+  /* 
+  eventDataArr.map((event) => (
+  console.log(event)
+  ));  */
 
-
-
-  const event = useFetch("https://api.hel.fi/linkedevents/v1/event/");
-
-  console.log(event.data);
   
-
-
-
   function handleSearch(e) {
     setSearch(e.target.value);
   }
-
 
   return (
     <>
