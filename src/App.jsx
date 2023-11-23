@@ -6,6 +6,7 @@ import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
 import useFetch from "./components/useFetch";
+import Map from "./components/Map";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,40 +15,41 @@ function App() {
     {
       id: 1,
       name: "Atte Party",
-      date: "24.11.2023",
+      date: "Nov, 24, 2023",
       hour: "19:00",
       area: "Pasila kaupunki",
     },
     {
       id: 2,
       name: "Thien Party",
-      date: "01.1.2024",
+      date: "Jan, 1, 2024",
       hour: "17:00",
       area: "Business College",
     },
     {
       id: 3,
       name: "John Party",
-      date: "31.12.2025",
+      date: "Dec, 31, 2024",
       hour: "11:00",
       area: "Vallila",
     },
   ]);
 
-  function handleSearch(e) {
-    setSearch(e.target.value);
-  }
+  const handleSearch = (e) => setSearch(e.target.value);
+  const filterSearch = () =>
+    events.filter((elem) => {
+      return (
+        elem.name.toLowerCase().includes(search.toLowerCase()) ||
+        elem.date.toLowerCase().includes(search.toLowerCase()) ||
+        elem.area.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+  console.log(filterSearch());
 
   const url = "https://api.hel.fi/linkedevents/v1/event/?on_going/";
   const data = useFetch(url);
-
-  if (data.isLoading) {
-    return <h2>Loading...</h2>;
-  }
-
-  if (data.isError) {
-    return <h2>There was an error...</h2>;
-  }
+  if (data.isLoading) return;
+  if (data.isError) return <h2>There was an error...</h2>;
 
   return (
     <>
