@@ -1,15 +1,11 @@
-* {
-  box-sizing: border-box;
-}
-
-img {
+.modal img {
   width: 100%;
-  height: 500px;
   object-fit: cover;
   border-radius: 5px 0 0 0;
+  max-height: 400px;
 }
 
-.close-button {
+.modal .close-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,82 +19,100 @@ img {
   transition: all ease 0.15s;
 }
 
-.close-button:hover {
+.modal .close-button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.material-symbols-outlined {
+.modal .material-symbols-outlined {
   font-size: 32px;
   color: white;
 }
 
-.event-title {
+.modal .event-title {
   text-transform: uppercase;
   text-wrap: balance; /* only some browser support */
 }
 
-h2,
-p {
-  padding-bottom: 30px;
+.modal h2,
+.modal p {
+  padding-bottom: 20px;
 }
 
-h2 {
-  font-size: 24px;
-}
-
-h3 {
+.modal h2 {
   font-size: 20px;
 }
 
-p {
+.modal h3 {
   font-size: 18px;
+}
+
+.modal p {
+  font-size: 14px;
   margin-left: 20px;
 }
 
-.modal {
-  min-height: 90%;
-  width: 90%;
-  margin: 60px auto; /* remove later */
-  background-color: white;
-  border-radius: 5px;
-  position: relative;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-.flex-container {
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  color: #333;
+  border-radius: 5px;
+  width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.modal .flex-container {
   display: flex;
 }
 
-.img-wrap,
-.highlights {
-  height: 500px;
+.modal .img-wrap,
+.modal .highlights {
+  width: 50%;
 }
 
-.highlights {
+.modal .highlights {
   padding: 40px 50px 0 40px;
+  width: 50%;
 }
 
-.description {
+.modal .description {
   padding: 30px 40px;
   background-color: #f7f7f7;
   border-radius: 0 0 5px 5px;
 }
 
 @media (max-width: 1000px) {
-  .flex-container {
+  .modal .flex-container {
     flex-direction: column;
   }
 
-  .description {
+  .modal .description {
     border-top: 3px dashed #777;
     border-radius: 0 0 5px 5px;
   }
 
-  .modal img {
+  .modal .modal img {
     border-radius: 5px 5px 0 0;
+    max-height: 300px;
+    width: 100%;
   }
-  .img-wrap,
-  .highlights {
-    min-height: 500px;
+  .modal .img-wrap,
+  .modal .highlights {
+    width: 100%;
   }
 }
