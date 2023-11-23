@@ -34,9 +34,18 @@ function App() {
     },
   ]);
 
-  const event = useFetch("https://api.hel.fi/linkedevents/v1/event/");
+  const event = useFetch("https://api.hel.fi/linkedevents/v1/event/?on_going/");
+  /* https://api.hel.fi/linkedevents/v1/event/ */
+  /* https://api.hel.fi/linkedevents/v1/event/?on_going */
 
-  console.log(event.data);
+  let eventData = event.data
+  console.log(eventData)
+  let eventDataArr = eventData.data
+  console.log(eventDataArr)
+  /* 
+  eventDataArr.map((event) => (
+  console.log(event)
+  ));  */
 
   function handleSearch(e) {
     setSearch(e.target.value);
