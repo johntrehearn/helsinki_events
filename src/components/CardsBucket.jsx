@@ -1,22 +1,26 @@
-import Card from "./Card"
-import '../styles/cardsBucket.css'
+import Card from "./Card";
+import "../styles/cardsBucket.css";
 
-function CardsBucket({events}) {
-
-    
-
-
-    return (
-        <div className="eventCards">
-        <h2>EVENTS</h2>
-        <div className="eventCardsBucket">
-            <div>
-            {events.map((event)=> (
-                <Card key={event.id} name={event.name} date={event.date} hour={event.hour} area={event.area}/>
-)) }</div>
+function CardsBucket({ events, onOpen }) {
+  return (
+    <div className="eventCards">
+      <h2>EVENTS</h2>
+      <div className="eventCardsBucket">
+        <div>
+          {events.map((event) => (
+            <Card
+              key={event.id}
+              name={event.name}
+              date={event.date}
+              hour={event.hour}
+              area={event.area}
+              onOpen={onOpen}
+            />
+          ))}
         </div>
-        </div>
-    )
+      </div>
+    </div>
+  );
 }
 
 export default CardsBucket;
