@@ -34,21 +34,19 @@ function App() {
     },
   ]);
 
-  const event = useFetch("https://api.hel.fi/linkedevents/v1/event/?on_going/");
-  /* https://api.hel.fi/linkedevents/v1/event/ */
-  /* https://api.hel.fi/linkedevents/v1/event/?on_going */
-
-  let eventData = event.data
-  console.log(eventData)
-  let eventDataArr = eventData.data
-  console.log(eventDataArr)
-  /* 
-  eventDataArr.map((event) => (
-  console.log(event)
-  ));  */
-
   function handleSearch(e) {
     setSearch(e.target.value);
+  }
+
+  const url = "https://api.hel.fi/linkedevents/v1/event/?on_going/";
+  const data = useFetch(url);
+
+  if (data.isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
+  if (data.isError) {
+    return <h2>There was an error...</h2>;
   }
 
   return (
@@ -56,7 +54,11 @@ function App() {
       <Header />
       <Banner onchange={handleSearch} />
       <CategorySection />
-      <CardsBucket events={events} onOpen={() => setIsOpen(true)} />
+      <CardsBucket
+        data={data.data}
+        events={events}
+        onOpen={() => setIsOpen(true)}
+      />
       <EventModal open={isOpen} onClose={() => setIsOpen(false)} />
       <Footer />
     </>
