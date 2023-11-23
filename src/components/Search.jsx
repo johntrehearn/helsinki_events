@@ -1,7 +1,10 @@
 const Search = ({ onchange }) => {
   return (
     <div className="search">
-      <input onChange={onchange} name="search" placeholder="search..."></input>
+      <input
+        onChange={onchange}
+        placeholder="name, area, month, year..."
+      ></input>
     </div>
   );
 };
