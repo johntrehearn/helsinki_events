@@ -6,7 +6,8 @@ import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
 import useFetch from "./components/useFetch";
-import Map from "./components/Map";
+import Sidebar from './components/Sidebar';
+/* import Map from "./components/Map"; */
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +57,7 @@ function App() {
       <Header />
       <Banner onchange={handleSearch} />
       <CategorySection />
+      <Sidebar/>
       <CardsBucket
         data={data.data}
         events={events}
