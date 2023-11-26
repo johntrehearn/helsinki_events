@@ -41,27 +41,29 @@ function Sidebar() {
         <div className={`sidebar-container ${navCollapse ? "navCollapse" : ""}`}>
 
           <div className="nav-option option1">
-            <Speedometer2/>
-            <h3>Dashboard</h3>
+            {/* <Speedometer2/> */}
+            <i class="bi bi-calendar2-check-fill"></i>
+            <h3>Today</h3>
           </div>
           <div className="nav-option option1">
-            <ClipboardPulse/>
-            <h3>Articles</h3>
+            {/* <ClipboardPulse/> */}
+            <i class="bi bi-award-fill"></i>
+            <h3>Popular</h3>
           </div>
         
           <div className="nav-option option1">
-            <ChatSquare/>
-            <h3>Report</h3>
+          <i class="bi bi-search-heart-fill"></i>
+            <h3>Search</h3>
           </div>
 
           <div className="nav-option option1">
-            <Gear/>
-            <h3>Settings</h3>
+          <i class="bi bi-map-fill"></i>
+            <h3>Map</h3>
           </div>
         
           <div className="nav-option option1">
-            <Power/>
-            <h3>Logout</h3>
+          <i class="bi bi-shuffle"></i>
+            <h3>Random</h3>
           </div>
         
         
