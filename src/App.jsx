@@ -6,7 +6,7 @@ import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
 import useFetch from "./components/useFetch";
-import Map from "./components/Map";
+// import Map from "./components/Map";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +35,27 @@ function App() {
     },
   ]);
 
+  //a function fetch location url and return location in string
+  function getArea(locationURL) {
+    let location;
+    const fetchArea = async () => {
+      try {
+        const response = await fetch(locationURL);
+        if (!response.ok) {
+          return;
+        }
+        location = await response.json();
+        console.log(location.id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchArea();
+    console.log(location);
+    return location;
+  }
+
   const handleSearch = (e) => setSearch(e.target.value);
   const filterSearch = () =>
     events.filter((elem) => {
@@ -57,11 +78,16 @@ function App() {
       <Banner onchange={handleSearch} />
       <CategorySection />
       <CardsBucket
+        getArea={getArea}
         data={data.data}
-        events={events}
         onOpen={() => setIsOpen(true)}
       />
-      <EventModal open={isOpen} onClose={() => setIsOpen(false)} />
+      <EventModal
+        getArea={getArea}
+        data={data.data}
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
       <Footer />
     </>
   );
