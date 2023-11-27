@@ -12,9 +12,8 @@ const useFetch = (url) => {
         // fetch categorizes errors 400 and 500 as a success
         // .ok categorizes only 200 as a succes
         if (!response.ok) {
-          setIsError(true);
-          setIsLoading(false);
-          return;
+          const msg = `There was an error: "${response.status} ${response.statusText}"`;
+          throw new Error(msg);
         }
         const data = await response.json();
         setData(data.data);
