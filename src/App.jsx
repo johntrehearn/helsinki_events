@@ -46,7 +46,7 @@ function App() {
     });
   console.log(filterSearch());
 
-  const url = "https://api.hel.fi/linkedevents/v1/event/?on_going/";
+  const url = "https://api.hel.fi/linkedevents/v1/event/?days=7";
   const data = useFetch(url);
   if (data.isLoading) return;
   if (data.isError) return <h2>There was an error...</h2>;
