@@ -38,7 +38,7 @@ function App() {
     setSearch(e.target.value);
   }
 
-  const url = "https://api.hel.fi/linkedevents/v1/event/?on_going/";
+  const url = "https://api.hel.fi/linkedevents/v1/event/?days=7";
   const data = useFetch(url);
 
   if (data.isLoading) {
