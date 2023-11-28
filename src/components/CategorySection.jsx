@@ -1,8 +1,9 @@
-import '../styles/CategorySection.css'
+import '../styles/categorySection.css'
 import sampleIcon from '../assets/nightlifeIcon.svg'
 
 function CategorySection() {
     return (
+    <div className="categorySection">
         <div className='iconCategoryWrapper'>
             <div className='iconCategoryCard'>
                 <div className='iconCategoryCardImageWrapper'>
@@ -45,6 +46,7 @@ function CategorySection() {
                 </div>
             </div>
         </div>
+    </div>
     )
 }
 

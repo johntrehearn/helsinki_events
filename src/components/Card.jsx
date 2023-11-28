@@ -3,6 +3,7 @@ import sampleImg from "../assets/coffee.jpg";
 
 function Card({ name, date, time, area, onOpen }) {
   return (
+    <div className="Card">
     <div className="eventCard" onClick={onOpen}>
       <img src={sampleImg} alt="sample image" className="eventCardImg"></img>
       <div className="eventCardDetails">
@@ -13,6 +14,7 @@ function Card({ name, date, time, area, onOpen }) {
         </div>
         <p>{area}</p>
       </div>
+    </div>
     </div>
   );
 }
