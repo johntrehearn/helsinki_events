@@ -1,39 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EventModal from "./components/EventModal";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
-import useFetch from "./components/useFetch";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [modalEventData, setModalEventData] = useState(null);
   const [search, setSearch] = useState("");
-  const [events, setEvents] = useState([
-    {
-      id: 1,
-      name: "Atte Party",
-      date: "Nov, 24, 2023",
-      hour: "19:00",
-      area: "Pasila kaupunki",
-    },
-    {
-      id: 2,
-      name: "Thien Party",
-      date: "Jan, 1, 2024",
-      hour: "17:00",
-      area: "Business College",
-    },
-    {
-      id: 3,
-      name: "John Party",
-      date: "Dec, 31, 2024",
-      hour: "11:00",
-      area: "Vallila",
-    },
-  ]);
+  const [url, setUrl] = useState(
+    "https://api.hel.fi/linkedevents/v1/event/?days=7"
+  );
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setEvents(data.data)); //data.next gives next 20 events
+  }, [url]);
+
+  // update state for search onChange
+  const handleSearch = (e) => setSearch(e.target.value);
+
+  // find matching data between card and modal
+  const getDataForModal = (id) =>
+    setModalEventData(events.find((el) => el.id === id));
 
   //A function change the format of date to "dd-mm-yyyy"
   function modifyDate(dateStr) {
@@ -105,27 +98,6 @@ function App() {
     return location;
   }
 
-  const url = "https://api.hel.fi/linkedevents/v1/event/?days=7";
-  const data = useFetch(url);
-  if (data.isLoading) return;
-  if (data.isError) return <h2>There was an error...</h2>;
-
-  const handleSearch = (e) => setSearch(e.target.value);
-  const filterSearch = () =>
-    events.filter((elem) => {
-      return (
-        elem.name.toLowerCase().includes(search.toLowerCase()) ||
-        elem.date.toLowerCase().includes(search.toLowerCase()) ||
-        elem.area.toLowerCase().includes(search.toLowerCase())
-      );
-    });
-  // console.log(filterSearch());
-
-  const getDataForModal = (id) => {
-    const modalData = data.data.filter((el) => el.id === id);
-    setModalEventData(modalData[0]);
-  };
-
   return (
     <>
       <Header />
@@ -135,9 +107,10 @@ function App() {
         getTime={getTime}
         getDate={getDate}
         getArea={getArea}
-        data={data.data}
+        data={events}
         getDataForModal={getDataForModal}
         onOpen={() => setIsOpen(true)}
+        search={search}
       />
       <EventModal
         getTime={getTime}
