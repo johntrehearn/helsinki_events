@@ -1,7 +1,7 @@
 import "../styles/eventModal.css";
 import ReactDom from "react-dom";
 
-function EventModal({ open, onClose, data }) {
+function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
   if (!open) return null;
 
   return ReactDom.createPortal(
@@ -19,9 +19,12 @@ function EventModal({ open, onClose, data }) {
           <div className="highlights">
             <h2 className="event-title">{data.name.fi}</h2>
             <h3>Paikka | Location</h3>
-            <p>{data.location["@id"]}</p>
+            <p>{getArea}</p>
             <h3>Milloin | When</h3>
-            <p>{data.start_time}</p>
+            <p>
+              {`${getDate(data.start_time, data.end_time)} | 
+              ${getTime(data.start_time, data.end_time)}`}
+            </p>
             <h3>Hinta | Price</h3>
             <p>
               {data.offers[0].is_free
