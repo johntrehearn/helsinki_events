@@ -2,9 +2,9 @@ import Card from "./Card";
 import "../styles/cardsBucket.css";
 import useFetch from "./useFetch";
 
-function CardsBucket({ events, onOpen, data, getArea }) {
-  console.log(data);
-  console.log(events);
+function CardsBucket({ events, onOpen, data, getArea, getDataForModal }) {
+  // console.log(data);
+  // console.log(events);
 
   //A function change the format of date to "dd-mm-yyyy"
   function modifyDate(dateStr) {
@@ -80,11 +80,13 @@ function CardsBucket({ events, onOpen, data, getArea }) {
           {data.map((event) => (
             <Card
               key={event.id}
+              id={event.id}
               name={event.name.fi}
               date={getDate(event.start_time, event.end_time)}
               time={getTime(event.start_time, event.end_time)}
               // area={event.location["@id"]}
               onOpen={onOpen}
+              getDataForModal={getDataForModal}
             />
           ))}
         </div>
