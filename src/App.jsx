@@ -6,10 +6,10 @@ import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
 import useFetch from "./components/useFetch";
-// import Map from "./components/Map";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [modalEventData, setModalEventData] = useState(null);
   const [search, setSearch] = useState("");
   const [events, setEvents] = useState([
     {
@@ -122,6 +122,11 @@ function App() {
   if (data.isLoading) return;
   if (data.isError) return <h2>There was an error...</h2>;
 
+  const getDataForModal = (id) => {
+    const modalData = data.data.filter((el) => el.id === id);
+    setModalEventData(modalData[0]);
+  };
+
   return (
     <>
       <Header />
@@ -132,11 +137,11 @@ function App() {
         getDate={getDate}
         getArea={getArea}
         data={data.data}
+        getDataForModal={getDataForModal}
         onOpen={() => setIsOpen(true)}
       />
       <EventModal
-        getArea={getArea}
-        data={data.data}
+        data={modalEventData}
         open={isOpen}
         onClose={() => setIsOpen(false)}
       />
