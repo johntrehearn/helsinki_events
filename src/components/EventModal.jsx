@@ -19,11 +19,15 @@ function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
           <div className="highlights">
             <h2 className="event-title">{data.name.fi}</h2>
             <h3>Paikka | Location</h3>
-            <p>{getArea}</p>
+            <p>https://api.hel.fi/linkedevents/v1/place/tprek:8177/</p>
             <h3>Milloin | When</h3>
             <p>
-              {`${getDate(data.start_time, data.end_time)} | 
-              ${getTime(data.start_time, data.end_time)}`}
+              {`${getDate(data.start_time, data.end_time)}
+              ${
+                !getTime(data.start_time, data.end_time)
+                  ? ""
+                  : getTime(data.start_time, data.end_time)
+              }`}
             </p>
             <h3>Hinta | Price</h3>
             <p>
