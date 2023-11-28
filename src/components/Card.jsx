@@ -3,6 +3,7 @@ import sampleImg from "../assets/coffee.jpg";
 
 function Card({ name, date, time, area, onOpen, getDataForModal, id }) {
   return (
+    <div className="Card">
     <div
       className="eventCard"
       onClick={() => {
@@ -21,6 +22,7 @@ function Card({ name, date, time, area, onOpen, getDataForModal, id }) {
         </div>
         <p>{area}</p>
       </div>
+    </div>
     </div>
   );
 }

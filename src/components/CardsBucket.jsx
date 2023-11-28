@@ -2,7 +2,7 @@ import Card from "./Card";
 import "../styles/cardsBucket.css";
 import useFetch from "./useFetch";
 
-function CardsBucket({ events, onOpen, data, getArea, getDataForModal }) {
+function CardsBucket({ onOpen, data, getArea, getDate, getTime, getDataForModal }) {
   // console.log(data);
   // console.log(events);
 
@@ -73,7 +73,7 @@ function CardsBucket({ events, onOpen, data, getArea, getDataForModal }) {
   } */
 
   return (
-    <div className="eventCards">
+    <div className="cardsBucket">
       <h2>EVENTS</h2>
       <div className="eventCardsBucket">
         <div>
@@ -88,7 +88,7 @@ function CardsBucket({ events, onOpen, data, getArea, getDataForModal }) {
               onOpen={onOpen}
               getDataForModal={getDataForModal}
             />
-          ))}
+            ))}
         </div>
       </div>
     </div>
