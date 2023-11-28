@@ -16,7 +16,7 @@ function CardsBucket({  onOpen, data, getArea, getDate, getTime }) {
             name={event.name.fi}
             date={getDate(event.start_time, event.end_time)}
             time={getTime(event.start_time, event.end_time)}
-            // area={event.location["@id"]}
+            area={getArea(event.location["@id"])}
             onOpen={onOpen}
             />
             ))}

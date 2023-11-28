@@ -5,13 +5,11 @@
 }
 
 .cardsBucket .eventCardsBucket {
-    margin-left: 400rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
     gap: 4.375rem;
     margin: 0;
     padding: 0;

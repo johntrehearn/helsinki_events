@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EventModal from "./components/EventModal";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -63,7 +63,6 @@ function App() {
     }
   }
 
-  
   //a function check and return TIME of event
   function getTime(startDateStr, endDateStr) {
     let startTime;
@@ -87,23 +86,27 @@ function App() {
   
   //a function fetch location url and return location in string
   function getArea(locationURL) {
-    let location;
-    const fetchArea = async () => {
+    const [area, setArea] = useState('');
+
+    const fetchLocation = async () => {
       try {
         const response = await fetch(locationURL);
         if (!response.ok) {
           return;
         }
-        location = await response.json();
-        console.log(location.id);
+        const locationData = await response.json();
+        const location = locationData.divisions.map(el => el.type === "neighborhood"? el.name.fi : '')
+        setArea(location)
+        
       } catch (error) {
         console.log(error);
       }
     };
+    useEffect(()=> {fetchLocation()}, [])
 
-    fetchArea();
-    console.log(location);
-    return location;
+    return (
+      <div>{area}</div>
+    )
   }
 
   const handleSearch = (e) => setSearch(e.target.value);
