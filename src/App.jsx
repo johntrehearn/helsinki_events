@@ -63,13 +63,12 @@ function App() {
     }
   }
 
-  
   //a function check and return TIME of event
   function getTime(startDateStr, endDateStr) {
     let startTime;
     let endTime;
     let time;
-    
+
     if (endDateStr == null && startDateStr == null) {
       time = "";
       return time;
@@ -84,7 +83,7 @@ function App() {
       return time;
     }
   }
-  
+
   //a function fetch location url and return location in string
   function getArea(locationURL) {
     let location;
@@ -95,16 +94,21 @@ function App() {
           return;
         }
         location = await response.json();
-        console.log(location.id);
+        // console.log(location.id);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchArea();
-    console.log(location);
+    // console.log(location);
     return location;
   }
+
+  const url = "https://api.hel.fi/linkedevents/v1/event/?days=7";
+  const data = useFetch(url);
+  if (data.isLoading) return;
+  if (data.isError) return <h2>There was an error...</h2>;
 
   const handleSearch = (e) => setSearch(e.target.value);
   const filterSearch = () =>
@@ -115,12 +119,7 @@ function App() {
         elem.area.toLowerCase().includes(search.toLowerCase())
       );
     });
-  console.log(filterSearch());
-
-  const url = "https://api.hel.fi/linkedevents/v1/event/?days=7";
-  const data = useFetch(url);
-  if (data.isLoading) return;
-  if (data.isError) return <h2>There was an error...</h2>;
+  // console.log(filterSearch());
 
   const getDataForModal = (id) => {
     const modalData = data.data.filter((el) => el.id === id);
@@ -141,6 +140,9 @@ function App() {
         onOpen={() => setIsOpen(true)}
       />
       <EventModal
+        getTime={getTime}
+        getDate={getDate}
+        getArea={getArea}
         data={modalEventData}
         open={isOpen}
         onClose={() => setIsOpen(false)}
