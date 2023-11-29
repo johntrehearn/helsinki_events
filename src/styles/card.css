@@ -1,6 +1,7 @@
 .Card .eventCard {
     width: 20rem;
     height: 30rem;
+    flex-shrink: 0;
     border-radius: 17px;
     background-color: #f2f2f2;
 }
