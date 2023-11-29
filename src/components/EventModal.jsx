@@ -13,11 +13,11 @@ function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
         </div>
         <div className="flex-container">
           <div className="img-wrap">
-            <img src={data.images[0].url} alt={data.name.fi} />
+            <img src={data.images[0].url} alt={data.name?.fi} />
           </div>
 
           <div className="highlights">
-            <h2 className="event-title">{data.name.fi}</h2>
+            <h2 className="event-title">{data.name?.fi}</h2>
             <h3>Paikka | Location</h3>
             <p>https://api.hel.fi/linkedevents/v1/place/tprek:8177/</p>
             <h3>Milloin | When</h3>
@@ -33,7 +33,7 @@ function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
             <p>
               {data.offers[0].is_free
                 ? "Ilmainen | Free"
-                : data.offers[0].price}
+                : data.offers[0].price.fi}
             </p>
             <i>
               <a href="#">Show link to homepage if there is</a>

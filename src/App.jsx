@@ -78,8 +78,8 @@ function App() {
   }
 
   //a function fetch location url and return location in string
-  function getArea(locationURL) {
-    const [area, setArea] = useState('');
+  /* function getArea(locationURL) {
+    const [area, setArea] = useState("");
 
     const fetchLocation = async () => {
       try {
@@ -88,19 +88,20 @@ function App() {
           return;
         }
         const locationData = await response.json();
-        const location = locationData.divisions.map(el => el.type === "neighborhood"? el.name.fi : '')
-        setArea(location)
-
+        const location = locationData.divisions.map((el) =>
+          el.type === "neighborhood" ? el.name.fi : ""
+        );
+        setArea(location);
       } catch (error) {
         console.log(error);
       }
     };
-    useEffect(()=> {fetchLocation()}, [])
+    useEffect(() => {
+      fetchLocation();
+    }, []);
 
-    return (
-      <div>{area}</div>
-
-  }
+    return <div>{area}</div>;
+  } */
 
   return (
     <>
@@ -110,7 +111,7 @@ function App() {
       <CardsBucket
         getTime={getTime}
         getDate={getDate}
-        getArea={getArea}
+        // getArea={getArea}
         data={events}
         getDataForModal={getDataForModal}
         onOpen={() => setIsOpen(true)}
@@ -119,7 +120,7 @@ function App() {
       <EventModal
         getTime={getTime}
         getDate={getDate}
-        getArea={getArea}
+        // getArea={getArea}
         data={modalEventData}
         open={isOpen}
         onClose={() => setIsOpen(false)}
