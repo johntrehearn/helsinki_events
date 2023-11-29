@@ -15,30 +15,20 @@ function Sidebar() {
   const [navCollapse, setNavCollapse] = useState(false)
   return (
     <div className="container">
-      <nav className="navSide">
-        <div className='sideMenuButton'>
-          <Justify onClick={e => setNavCollapse(!navCollapse)}/>
 
-        </div>
-        <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#about_the_project">About the project</a>
-          </li>
-          <li>
-            <a href="contact_us">Contact Us</a>
-           {/*  <Speedometer2/> */}
-          </li>
-        </ul>
-      </nav>
-      
+      <div className='sticky'>
+
       <div className='sidebar_content'>
         
       
 
         <div className={`sidebar-container ${navCollapse ? "navCollapse" : ""}`}>
+          <div className='svg'>
+          
+          <Justify onClick={e => setNavCollapse(!navCollapse)}/>
+
+          </div>
+
 
           <div className="nav-option option1">
             {/* <Speedometer2/> */}
@@ -66,6 +56,7 @@ function Sidebar() {
             <h3>Random</h3>
           </div>
         
+      </div>
         
         </div>
 

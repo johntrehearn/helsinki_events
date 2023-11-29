@@ -44,12 +44,20 @@
 }
 
 .sidebar-container {
-    background-color: black;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    position: fixed;
+    background-color: rgb(103, 98, 98);
     color: white;
     width: 250px;
-    height: calc(100vh - 60px);
-    overflow-y: scroll;
-    overflow-x: hidden;
+    height: calc(100vh - 140px);
+    border-radius: 10px;
+   
+}
+
+.sticky {
+    position: sticky;
 }
 .sidebar-container::-webkit-scrollbar {
     display: none;
@@ -61,6 +69,7 @@
     padding: 10px 0px 20px 20px;
     gap: 20px;
     width: 250px
+    
 }
 
 .nav-option:hover {
@@ -70,9 +79,16 @@
 
 }
 
+.svg {
+
+    text-align: center;
+
+}
+
 .nav-option {
     color: white;
     font-size: 25px;
+    
 
 }
 
