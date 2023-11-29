@@ -23,10 +23,14 @@ function CardsBucket({
               return (
                 elem.name?.fi?.toLowerCase().includes(search.toLowerCase()) ||
                 elem.name?.en?.toLowerCase().includes(search.toLowerCase()) ||
+                elem.name?.sv?.toLowerCase().includes(search.toLowerCase()) ||
                 elem.description?.fi
                   ?.toLowerCase()
                   .includes(search.toLowerCase()) ||
                 elem.description?.en
+                  ?.toLowerCase()
+                  .includes(search.toLowerCase()) ||
+                elem.description?.sv
                   ?.toLowerCase()
                   .includes(search.toLowerCase())
               );

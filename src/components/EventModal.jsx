@@ -1,5 +1,6 @@
 import "../styles/eventModal.css";
 import ReactDom from "react-dom";
+import parse from "html-react-parser";
 
 function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
   if (!open) return null;
@@ -19,7 +20,7 @@ function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
           <div className="highlights">
             <h2 className="event-title">{data.name.fi}</h2>
             <h3>Paikka | Location</h3>
-            <p>https://api.hel.fi/linkedevents/v1/place/tprek:8177/</p>
+            <p>{getArea(data.location["@id"])}</p>
             <h3>Milloin | When</h3>
             <p>
               {`${getDate(data.start_time, data.end_time)}
@@ -33,7 +34,7 @@ function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
             <p>
               {data.offers[0].is_free
                 ? "Ilmainen | Free"
-                : data.offers[0].price}
+                : data.offers[0].price.fi}
             </p>
             <i>
               <a href="#">Show link to homepage if there is</a>
@@ -43,7 +44,7 @@ function EventModal({ open, onClose, data, getTime, getDate, getArea }) {
 
         <div className="description">
           <h2>Kuvaus | Description</h2>
-          {data.short_description.fi}
+          <div>{parse(data.description.fi)}</div>
         </div>
       </div>
     </>,
