@@ -78,7 +78,7 @@ function App() {
   }
 
   //a function fetch location url and return location in string
-  /* function getArea(locationURL) {
+  function getArea(locationURL) {
     const [area, setArea] = useState("");
 
     const fetchLocation = async () => {
@@ -101,7 +101,7 @@ function App() {
     }, []);
 
     return <div>{area}</div>;
-  } */
+  }
 
   return (
     <>
@@ -111,7 +111,7 @@ function App() {
       <CardsBucket
         getTime={getTime}
         getDate={getDate}
-        // getArea={getArea}
+        getArea={getArea}
         data={events}
         getDataForModal={getDataForModal}
         onOpen={() => setIsOpen(true)}
@@ -120,7 +120,7 @@ function App() {
       <EventModal
         getTime={getTime}
         getDate={getDate}
-        // getArea={getArea}
+        getArea={getArea}
         data={modalEventData}
         open={isOpen}
         onClose={() => setIsOpen(false)}
