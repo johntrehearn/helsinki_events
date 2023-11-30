@@ -21,6 +21,11 @@ function App() {
       .then((data) => setEvents(data.data)); //data.next gives next 20 events
   }, [url]);
 
+  console.log(`URL state: ${url}`);
+
+  // update url state
+  const updateURL = (url) => setUrl(url);
+
   // update state for search onChange
   const handleSearch = (e) => setSearch(e.target.value);
 
@@ -78,9 +83,8 @@ function App() {
   }
 
   //a function fetch location url and return location in string
-  function getArea(locationURL) {
+  /* function getArea(locationURL) {
     const [area, setArea] = useState("");
-
     const fetchLocation = async () => {
       try {
         const response = await fetch(locationURL);
@@ -96,22 +100,22 @@ function App() {
         console.log(error);
       }
     };
+
     useEffect(() => {
       fetchLocation();
     }, []);
-
     return <div>{area}</div>;
-  }
+  } */
 
   return (
     <>
       <Header />
-      <Banner onchange={handleSearch} />
+      <Banner onchange={handleSearch} updateURL={updateURL} />
       <CategorySection />
       <CardsBucket
         getTime={getTime}
         getDate={getDate}
-        getArea={getArea}
+        // getArea={getArea}
         data={events}
         getDataForModal={getDataForModal}
         onOpen={() => setIsOpen(true)}
@@ -120,10 +124,11 @@ function App() {
       <EventModal
         getTime={getTime}
         getDate={getDate}
-        getArea={getArea}
+        // getArea={getArea}
         data={modalEventData}
         open={isOpen}
         onClose={() => setIsOpen(false)}
+        updateURL={updateURL}
       />
       <Footer />
     </>
