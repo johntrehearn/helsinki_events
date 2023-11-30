@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
-import Sidebar from './components/Sidebar';
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -108,7 +108,7 @@ function App() {
         setArea(result[3]);
       },
       (error) => {
-        console.log(`There is an error : ${error}`);
+        console.log(`There is an error: ${error}`);
       }
     );
   }
@@ -118,7 +118,7 @@ function App() {
       <Header />
       <Banner onchange={handleSearch} updateURL={updateURL} />
       <CategorySection />
-      <Sidebar/>
+      <Sidebar />
       <CardsBucket
         getTime={getTime}
         getDate={getDate}

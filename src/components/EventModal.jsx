@@ -2,7 +2,7 @@ import "../styles/eventModal.css";
 import ReactDom from "react-dom";
 import parse from "html-react-parser";
 
-function EventModal({ open, onClose, data, getTime, getDate, getArea, area }) {
+function EventModal({ open, onClose, data, getTime, getDate, area, getArea }) {
   if (!open) return null;
 
   return ReactDom.createPortal(
