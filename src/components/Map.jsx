@@ -1,4 +1,4 @@
-const Map = ({ area }) => {
+const Map = (/* { area } */) => {
   return (
     <div style={{ position: "relative", width: "100%", paddingBottom: "52%" }}>
       <iframe

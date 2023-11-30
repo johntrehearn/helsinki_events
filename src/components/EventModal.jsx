@@ -10,11 +10,12 @@ function EventModal({ open, onClose, data, getTime, getDate, area, getArea }) {
 
   return ReactDom.createPortal(
     <>
-      <div className="overlay"></div>
-      <div className="modal">
+      <div className="overlay">
         <div className="close-button" onClick={onClose}>
           <span className="material-symbols-outlined">close</span>
         </div>
+      </div>
+      <div className="modal">
         <div className="flex-container">
           <div className="img-wrap">
             <img src={data.images[0].url} alt={data.name.fi} />
