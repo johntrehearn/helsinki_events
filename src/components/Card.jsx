@@ -1,18 +1,28 @@
 import "../styles/card.css";
 import sampleImg from "../assets/coffee.jpg";
 
-function Card({ name, date, hour, area, onOpen }) {
+function Card({ name, date, time, area, onOpen, getDataForModal, id }) {
   return (
-    <div className="eventCard" onClick={onOpen}>
+    <div className="Card">
+    <div
+      className="eventCard"
+      onClick={() => {
+        onOpen();
+        getDataForModal(id);
+      }}
+    >
       <img src={sampleImg} alt="sample image" className="eventCardImg"></img>
-      <section className="eventCardDetails">
-        <h2>{name}</h2>
-        <p>
+      <div className="eventCardDetails">
+        <h2>
+          <span>{name}</span>
+        </h2>
+        <div>
           <span>{date}</span>
-          <span>{hour}</span>
-        </p>
+          <span>{time}</span>
+        </div>
         <p>{area}</p>
-      </section>
+      </div>
+    </div>
     </div>
   );
 }
