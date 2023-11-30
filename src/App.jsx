@@ -15,6 +15,7 @@ function App() {
     "https://api.hel.fi/linkedevents/v1/event/?days=7"
   );
   const [events, setEvents] = useState([]);
+  const [area, setArea] = useState("");
 
   useEffect(() => {
     fetch(url)
@@ -22,7 +23,7 @@ function App() {
       .then((data) => setEvents(data.data)); //data.next gives next 20 events
   }, [url]);
 
-  console.log(`URL state: ${url}`);
+  // console.log(`URL state: ${url}`);
 
   // update url state
   const updateURL = (url) => setUrl(url);
@@ -83,10 +84,9 @@ function App() {
     }
   }
 
-  //a function fetch location url and return location in string
-  /* function getArea(locationURL) {
-    const [area, setArea] = useState("");
-    const fetchLocation = async () => {
+  // a function fetch location url and set location in state
+  function getArea(locationURL) {
+    const fetchLocation = async (locationURL) => {
       try {
         const response = await fetch(locationURL);
         if (!response.ok) {
@@ -96,17 +96,22 @@ function App() {
         const location = locationData.divisions.map((el) =>
           el.type === "neighborhood" ? el.name.fi : ""
         );
-        setArea(location);
+        return location;
       } catch (error) {
         console.log(error);
       }
     };
 
-    useEffect(() => {
-      fetchLocation();
-    }, []);
-    return <div>{area}</div>;
-  } */
+    const promise = fetchLocation(locationURL);
+    promise.then(
+      (result) => {
+        setArea(result[3]);
+      },
+      (error) => {
+        console.log(`There is an error : ${error}`);
+      }
+    );
+  }
 
   return (
     <>
@@ -126,7 +131,8 @@ function App() {
       <EventModal
         getTime={getTime}
         getDate={getDate}
-        // getArea={getArea}
+        getArea={getArea}
+        area={area}
         data={modalEventData}
         open={isOpen}
         onClose={() => setIsOpen(false)}

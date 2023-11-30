@@ -2,7 +2,7 @@ import "../styles/eventModal.css";
 import ReactDom from "react-dom";
 import parse from "html-react-parser";
 
-function EventModal({ open, onClose, data, getTime, getDate /* getArea */ }) {
+function EventModal({ open, onClose, data, getTime, getDate, getArea, area }) {
   if (!open) return null;
 
   return ReactDom.createPortal(
@@ -20,7 +20,10 @@ function EventModal({ open, onClose, data, getTime, getDate /* getArea */ }) {
           <div className="highlights">
             <h2 className="event-title">{data.name.fi}</h2>
             <h3>Paikka | Location</h3>
-            <p>{/* {getArea(data.location["@id"])} */}</p>
+            <p>
+              {getArea(data.location["@id"])}
+              {area}
+            </p>
             <h3>Milloin | When</h3>
             <p>
               {`${getDate(data.start_time, data.end_time)}
