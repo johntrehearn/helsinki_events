@@ -1,12 +1,11 @@
 import Card from "./Card";
 import "../styles/cardsBucket.css";
-import useFetch from "./useFetch";
 
 function CardsBucket({
   search,
   onOpen,
   data,
-  getArea,
+  // getArea,
   getDate,
   getTime,
   getDataForModal,
@@ -42,7 +41,7 @@ function CardsBucket({
                 name={event.name.fi}
                 date={getDate(event.start_time, event.end_time)}
                 time={getTime(event.start_time, event.end_time)}
-                area={getArea(event.location["@id"])}
+                // area={getArea(event.location["@id"])}
                 onOpen={onOpen}
                 getDataForModal={getDataForModal}
               />
