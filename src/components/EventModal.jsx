@@ -1,6 +1,7 @@
 import "../styles/eventModal.css";
 import ReactDom from "react-dom";
 import parse from "html-react-parser";
+import Map from "./Map";
 
 function EventModal({ open, onClose, data, getTime, getDate, area, getArea }) {
   if (!open) return null;
@@ -48,6 +49,7 @@ function EventModal({ open, onClose, data, getTime, getDate, area, getArea }) {
           <h2>Kuvaus | Description</h2>
           <div>{parse(data.description.fi)}</div>
         </div>
+        <div className="map">{area && <Map area />}</div>
       </div>
     </>,
     document.getElementById("portal")

@@ -90,7 +90,8 @@
   width: 50%;
 }
 
-.modal .description {
+.modal .description,
+.modal .map {
   padding: 30px 40px;
   background-color: #f7f7f7;
   border-radius: 0 0 5px 5px;
