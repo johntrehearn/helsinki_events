@@ -5,6 +5,8 @@ import parse from "html-react-parser";
 function EventModal({ open, onClose, data, getTime, getDate, area, getArea }) {
   if (!open) return null;
 
+  getArea(data.location["@id"]);
+
   return ReactDom.createPortal(
     <>
       <div className="overlay"></div>
@@ -20,10 +22,7 @@ function EventModal({ open, onClose, data, getTime, getDate, area, getArea }) {
           <div className="highlights">
             <h2 className="event-title">{data.name.fi}</h2>
             <h3>Paikka | Location</h3>
-            <p>
-              {getArea(data.location["@id"])}
-              {area}
-            </p>
+            <p>{area}</p>
             <h3>Milloin | When</h3>
             <p>
               {`${getDate(data.start_time, data.end_time)}
@@ -39,9 +38,9 @@ function EventModal({ open, onClose, data, getTime, getDate, area, getArea }) {
                 ? "Ilmainen | Free"
                 : data.offers[0].price.fi}
             </p>
-            <i>
+            {/* <i>
               <a href="#">Show link to homepage if there is</a>
-            </i>
+            </i> */}
           </div>
         </div>
 
