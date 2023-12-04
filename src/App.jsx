@@ -75,14 +75,14 @@ function App() {
       time = "";
       return time;
     } else if (modifyDate(startDateStr) === modifyDate(endDateStr)) {
-      startTimeInt = parseInt(startDateStr.slice(11,13)) + 2;
-      startTime = `${startTimeInt}${startDateStr.slice(13,16)}`
-      endTimeInt = parseInt(endDateStr.slice(11,13)) + 2;
-      endTime = `${endTimeInt}${endDateStr.slice(13,16)}`
+      startTimeInt = parseInt(startDateStr.slice(11, 13)) + 2;
+      startTime = `${startTimeInt}${startDateStr.slice(13, 16)}`;
+      endTimeInt = parseInt(endDateStr.slice(11, 13)) + 2;
+      endTime = `${endTimeInt}${endDateStr.slice(13, 16)}`;
       time = ` ${startTime}-${endTime}`;
       return time;
     } else if (startDateStr != null && endDateStr == null) {
-      startTime = `${startTimeInt}:${startDateStr.slice(13,16)}`
+      startTime = `${startTimeInt}:${startDateStr.slice(13, 16)}`;
       time = ` ${startTime}`;
       return time;
     }
@@ -100,6 +100,10 @@ function App() {
         const location = locationData.divisions.map((el) =>
           el.type === "neighborhood" ? el.name.fi : ""
         );
+
+        const str = locationData.id;
+        const match = str.match(/(\d+)/);
+
         return location;
       } catch (error) {
         console.log(error);

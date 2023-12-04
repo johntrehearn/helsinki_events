@@ -11,7 +11,7 @@ const Map = (/* { area } */) => {
           width: "100%",
           height: "100%",
         }}
-        src="https://servicemap.hel.fi/en/embed/unit/28473?city=helsinki,espoo,vantaa,kauniainen,kirkkonummi&bbox=60.16480658313126,24.940466880798343,60.17125385566993,24.965357780456547"
+        src={`https://servicemap.hel.fi/en/embed/unit/$/* {areaId[0]} */`}
       ></iframe>
     </div>
   );
