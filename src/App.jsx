@@ -64,6 +64,8 @@ function App() {
 
   //a function check and return TIME of event
   function getTime(startDateStr, endDateStr) {
+    let startTimeInt;
+    let endTimeInt;
     let startTime;
     let endTime;
     let time;
@@ -72,12 +74,14 @@ function App() {
       time = "";
       return time;
     } else if (modifyDate(startDateStr) === modifyDate(endDateStr)) {
-      startTime = startDateStr.slice(11, 16);
-      endTime = endDateStr.slice(11, 16);
+      startTimeInt = parseInt(startDateStr.slice(11,13)) + 2;
+      startTime = `${startTimeInt}${startDateStr.slice(13,16)}`
+      endTimeInt = parseInt(endDateStr.slice(11,13)) + 2;
+      endTime = `${endTimeInt}${endDateStr.slice(13,16)}`
       time = ` ${startTime}-${endTime}`;
       return time;
     } else if (startDateStr != null && endDateStr == null) {
-      startTime = startDateStr.slice(11, 16);
+      startTime = `${startTimeInt}:${startDateStr.slice(13,16)}`
       time = ` ${startTime}`;
       return time;
     }
