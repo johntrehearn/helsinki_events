@@ -1,7 +1,7 @@
 import "../styles/card.css";
 import sampleImg from "../assets/coffee.jpg";
 
-function Card({ name, date, time, area, onOpen, getDataForModal, id }) {
+function Card({ name, date, time, area, onOpen, getDataForModal, id, eventImgURL }) {
   return (
     <div className="Card">
       <div
@@ -11,7 +11,7 @@ function Card({ name, date, time, area, onOpen, getDataForModal, id }) {
           getDataForModal(id);
         }}
       >
-        <img src={sampleImg} alt="sample image" className="eventCardImg"></img>
+        <img src={eventImgURL} alt={name} className="eventCardImg"></img>
         <div className="eventCardDetails">
           <h2>
             <span>{name}</span>
