@@ -1,7 +1,15 @@
 import "../styles/card.css";
-import sampleImg from "../assets/coffee.jpg";
 
-function Card({ name, date, time, area, onOpen, getDataForModal, id, eventImgURL }) {
+function Card({
+  name,
+  date,
+  time,
+  area,
+  onOpen,
+  getDataForModal,
+  id,
+  eventImgURL,
+}) {
   return (
     <div className="Card">
       <div

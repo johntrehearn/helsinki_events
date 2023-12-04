@@ -1,92 +1,78 @@
-:root {
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    scroll-behavior: smooth;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smooting: grayscale;
-}
-
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-a {
-    text-decoration: none;
-    color: black;
+.header a {
+  text-decoration: none;
+  color: black;
 }
 
-body {
-    background-color: rgb(184, 195, 195);
-    font-family: "Lato", Helvetica, sans-serif;
+.header body {
+  background-color: rgb(184, 195, 195);
+  font-family: "Lato", Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 .header {
-    background-color: rgb(201, 192, 194);
-    display: flex;
-    position: sticky;
-    top: 0;
-    justify-content: space-between;
-    padding: 1rem;
-    align-items: center;
-  }
-
-li {
-    display: inline-block;
-    margin: 7px;
-    text-decoration: none;
-  }
-
-section {
-    scroll-margin-top: 60px;
+  background-color: rgb(201, 192, 194);
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
 }
 
-  .mobile {
+.header li {
+  display: inline-block;
+  margin: 7px;
+  text-decoration: none;
+}
+
+.header section {
+  scroll-margin-top: 60px;
+}
+
+.header .mobile {
+  display: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+@media (max-width: 800px) {
+  .header body {
+    background-color: rgb(59, 28, 210);
+
+    /* Hides nav or hamburger menu */
+  }
+  .header nav ul {
     display: none;
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-}
-
-  @media (max-width:800px) {
-    body {
-        background-color: rgb(59, 28, 210);
-
-        /* Hides nav or hamburger menu */
-
-    }
-    nav ul {
-        display: none;
-    }
-
-    .mobile {
-        display: block;
-        border: solid 1px ;
-    }
-
-    .btn {
-        padding: 0.6 rem;
-        background-color: bisque;
-    }
-
-    ul.responsive {
-        display: block;
-        background-color: brown;
-        position: absolute;
-        left: 0;
-        top: 80px;
-        width: 100%;
-        height: 25%;
-    }
-
-    ul.responsive li {
-        display: block;
-        margin: 1rem;
-    }
   }
+
+  .header .mobile {
+    display: block;
+    border: solid 1px;
+  }
+
+  .header .btn {
+    padding: 0.6 rem;
+    background-color: bisque;
+  }
+
+  .header ul.responsive {
+    display: block;
+    background-color: brown;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    height: 25%;
+  }
+
+  .header ul.responsive li {
+    display: block;
+    margin: 1rem;
+  }
+}
