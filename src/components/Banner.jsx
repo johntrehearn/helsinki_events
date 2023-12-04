@@ -22,12 +22,10 @@ const Banner = ({ onchange, updateURL }) => {
         </button>
         <button
           onClick={() =>
-            updateURL(
-              "https://api.hel.fi/linkedevents/v1/event/?internet_based=true"
-            )
+            updateURL("https://api.hel.fi/linkedevents/v1/event/?language=en")
           }
         >
-          INTERNET BASED
+          EVENTS IN ENGLISH
         </button>
       </div>
     </div>
