@@ -1,5 +1,6 @@
 import "../styles/card.css";
 import sampleImg from "../assets/coffee.jpg";
+import { MusicNote } from 'react-bootstrap-icons';
 
 function Card({ name, date, time, area, onOpen, getDataForModal, id }) {
   return (
@@ -28,3 +29,5 @@ function Card({ name, date, time, area, onOpen, getDataForModal, id }) {
 }
 
 export default Card;
+
+

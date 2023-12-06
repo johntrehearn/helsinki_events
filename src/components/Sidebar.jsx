@@ -36,33 +36,32 @@ function Sidebar({updateURL}) {
 
           </div>
 
-
-          <div className="nav-option option1" onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?is_free=false')}>
+          <div className="nav-option option1" onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?start=now&end=today')}>
             {console.log(URL)}
             {/* <Speedometer2/> */}
             <i className="bi bi-calendar2-check-fill"></i>
             <h3>Today</h3>
           </div>
-          <div className="nav-option option1" onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?is_free=true')}>
+          <div className="nav-option option1" onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?days=7')}>
             {/* <ClipboardPulse/> */}
-            <i className="bi bi-award-fill"></i>
-            <h3>Popular</h3>
+            <i className="bi bi-calendar-week"></i>
+            <h3>This Week</h3>
           </div>
         
           <div className="nav-option option1" onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?musiikki=true')}>
-          <i className="bi bi-search-heart-fill"></i>
-            <h3>Search</h3>
+          <i className="bi bi-piggy-bank"></i>
+            <h3>Free</h3>
           </div>
 
-          <div className="nav-option option1">
-          <i className="bi bi-map-fill"></i>
-          
-            <h3>Map</h3>
+          <div className="nav-option option1" onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?internet_based=true')}>
+          <i className="bi bi-music-note-list"></i>
+
+            <h3>Music</h3>
           </div>
         
-          <div className="nav-option option1">
-          <i className="bi bi-shuffle"></i>
-            <h3>Random</h3>
+          <div className="nav-option option1" onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?is_free=true')}>
+          <i className="bi bi-router"></i>
+            <h3>Internet</h3>
           </div>
         
       </div>
