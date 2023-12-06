@@ -56,6 +56,7 @@ function Sidebar({updateURL}) {
 
           <div className="nav-option option1">
           <i className="bi bi-map-fill"></i>
+          
             <h3>Map</h3>
           </div>
         
