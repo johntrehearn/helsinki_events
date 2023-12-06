@@ -19,7 +19,7 @@ function Card({ name, date, time, onOpen, getDataForModal, id, eventImgURL }) {
             <span>{date}</span>
             <span>{time}</span>
           </div>
-          <p>{/* area */}</p>
+          <p>{/* {area} */}</p>
         </div>
       </div>
     </div>

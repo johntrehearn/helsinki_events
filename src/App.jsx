@@ -15,7 +15,7 @@ function App() {
     "https://api.hel.fi/linkedevents/v1/event/?days=7"
   );
   const [events, setEvents] = useState([]);
-  const [locationInfo, setSetLocationInfo] = useState({});
+  const [locationInfo, setLocationInfo] = useState({});
 
   useEffect(() => {
     fetch(url)
@@ -36,7 +36,7 @@ function App() {
     setModalEventData(events.find((el) => el.id === id));
 
     if (modalEventData === null) return;
-    getArea(modalEventData.location["@id"]);
+    getLocationInfo(modalEventData.location["@id"]);
   };
 
   //A function change the format of date to "dd-mm-yyyy"
@@ -93,7 +93,7 @@ function App() {
   }
 
   // a function fetch location url and set location in state
-  function getArea(locationURL) {
+  function getLocationInfo(locationURL) {
     const fetchLocation = async (locationURL) => {
       try {
         const response = await fetch(locationURL);
@@ -125,7 +125,7 @@ function App() {
     };
 
     fetchLocation(locationURL).then(
-      (locationInfo) => setSetLocationInfo(locationInfo),
+      (locationInfo) => setLocationInfo(locationInfo),
       (error) => console.log(`There is an error: ${error}`)
     );
   }

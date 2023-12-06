@@ -16,11 +16,11 @@
   align-items: center;
   background-color: rgb(153, 153, 153);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: fixed;
   top: 10px;
-  right: 10px;
+  right: 20px;
   transition: all ease 0.15s;
   cursor: pointer;
 }
@@ -28,6 +28,7 @@
 .overlay .close-button:hover {
   opacity: 0.8;
   cursor: pointer;
+  color: white;
 }
 
 /* - - - MODAL - - - */
@@ -65,6 +66,17 @@
 .modal p {
   font-size: 14px;
   margin-left: 20px;
+}
+
+.modal a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.modal a:hover {
+  opacity: 0.7;
 }
 
 .modal {

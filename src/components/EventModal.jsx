@@ -49,9 +49,9 @@ function EventModal({
                 ? "Ilmainen | Free"
                 : modalData.offers[0].price.fi}
             </p>
-            {/* <i>
-              <a href="#">Show link to homepage if there is</a>
-            </i> */}
+            {locationInfo.website && (
+              <a href={locationInfo.website}>Link to the place</a>
+            )}
           </div>
         </div>
 
