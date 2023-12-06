@@ -15,7 +15,7 @@ function App() {
     "https://api.hel.fi/linkedevents/v1/event/?days=7"
   );
   const [events, setEvents] = useState([]);
-  const [area, setArea] = useState("");
+  const [locationInfo, setSetLocationInfo] = useState({});
 
   useEffect(() => {
     fetch(url)
@@ -32,8 +32,12 @@ function App() {
   const handleSearch = (e) => setSearch(e.target.value);
 
   // find matching data between card and modal
-  const getDataForModal = (id) =>
+  const getDataForModal = (id) => {
     setModalEventData(events.find((el) => el.id === id));
+
+    if (modalEventData === null) return;
+    getArea(modalEventData.location["@id"]);
+  };
 
   //A function change the format of date to "dd-mm-yyyy"
   function modifyDate(dateStr) {
@@ -93,31 +97,36 @@ function App() {
     const fetchLocation = async (locationURL) => {
       try {
         const response = await fetch(locationURL);
-        if (!response.ok) {
-          return;
-        }
+        if (!response.ok) return;
+
         const locationData = await response.json();
+
         const location = locationData.divisions.map((el) =>
           el.type === "neighborhood" ? el.name.fi : ""
         );
 
-        const str = locationData.id;
-        const match = str.match(/(\d+)/);
+        const areaId = locationData.id.match(/(\d+)/);
 
-        return location;
+        const locationInfo = {
+          neighborhood: location[3],
+          streetAddress: locationData.street_address.fi,
+          city: locationData.address_locality.fi,
+          website: locationData.info_url.fi,
+          mapURL: `${areaId[0]}?lat=${locationData.position.coordinates[0]}&lon=${locationData.position.coordinates[1]}`,
+        };
+        /* console.log(
+          `https://palvelukartta.hel.fi/fi/embed/unit/${locationInfo.mapURL}`
+        ); */
+
+        return locationInfo;
       } catch (error) {
         console.log(error);
       }
     };
 
-    const promise = fetchLocation(locationURL);
-    promise.then(
-      (result) => {
-        setArea(result[3]);
-      },
-      (error) => {
-        console.log(`There is an error: ${error}`);
-      }
+    fetchLocation(locationURL).then(
+      (locationInfo) => setSetLocationInfo(locationInfo),
+      (error) => console.log(`There is an error: ${error}`)
     );
   }
 
@@ -130,8 +139,8 @@ function App() {
       <CardsBucket
         getTime={getTime}
         getDate={getDate}
-        // getArea={getArea}
         data={events}
+        modalData={modalEventData}
         getDataForModal={getDataForModal}
         onOpen={() => setIsOpen(true)}
         search={search}
@@ -139,12 +148,10 @@ function App() {
       <EventModal
         getTime={getTime}
         getDate={getDate}
-        getArea={getArea}
-        area={area}
-        data={modalEventData}
+        modalData={modalEventData}
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        updateURL={updateURL}
+        locationInfo={locationInfo}
       />
       <Footer />
     </>

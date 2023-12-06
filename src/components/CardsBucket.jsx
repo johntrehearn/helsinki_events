@@ -5,7 +5,7 @@ function CardsBucket({
   search,
   onOpen,
   data,
-  // getArea,
+  modalData,
   getDate,
   getTime,
   getDataForModal,
@@ -39,7 +39,7 @@ function CardsBucket({
               date={getDate(event.start_time, event.end_time)}
               time={getTime(event.start_time, event.end_time)}
               eventImgURL={event.images.map((image) => image.url)}
-              // area={getArea(event.location["@id"])}
+              modalData={modalData}
               onOpen={onOpen}
               getDataForModal={getDataForModal}
             />
