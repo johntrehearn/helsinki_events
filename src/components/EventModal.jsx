@@ -27,7 +27,9 @@ function EventModal({
           </div>
 
           <div className="highlights">
-            <h2 className="event-title">{modalData.name.fi}</h2>
+            <h2 className="event-title">
+              {modalData.name.fi ? modalData.name.fi : modalData.name.en}
+            </h2>
             {locationInfo.neighborhood && (
               <div>
                 <h3>Alue | Neighborhood</h3>
@@ -43,12 +45,16 @@ function EventModal({
                   : getTime(modalData.start_time, modalData.end_time)
               }`}
             </p>
-            <h3>Hinta | Price</h3>
-            <p>
-              {modalData.offers[0].is_free
-                ? "Ilmainen - Free"
-                : modalData.offers[0].price.fi}
-            </p>
+            {modalData.offers[0].is_free && (
+              <div>
+                <h3>Hinta | Price</h3>
+                <p>
+                  {modalData.offers[0].is_free
+                    ? "Ilmainen - Free"
+                    : modalData.offers[0].price.fi}
+                </p>
+              </div>
+            )}
             {locationInfo.website && (
               <div>
                 <h3>Paikka | Venue</h3>

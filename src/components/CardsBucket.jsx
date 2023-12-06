@@ -8,6 +8,8 @@ function CardsBucket({
   getDate,
   getTime,
   getDataForModal,
+  updateURL,
+  nextUrl,
 }) {
   // console.log(data);
 
@@ -42,6 +44,12 @@ function CardsBucket({
               getDataForModal={getDataForModal}
             />
           ))}
+
+        <div>
+          <button onClick={() => updateURL(nextUrl)}>
+            Seuraava sivu | Next page
+          </button>
+        </div>
       </div>
     </div>
   ); //end of return

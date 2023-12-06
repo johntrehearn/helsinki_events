@@ -14,13 +14,17 @@ function App() {
   const [url, setUrl] = useState(
     "https://api.hel.fi/linkedevents/v1/event/?days=7"
   );
+  const [nextUrl, setNextUrl] = useState("");
   const [events, setEvents] = useState([]);
   const [locationInfo, setLocationInfo] = useState({});
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setEvents(data.data)); //data.next gives next 20 events
+      .then((data) => {
+        setEvents(data.data);
+        setNextUrl(data.meta.next);
+      });
   }, [url]);
 
   // update url state
@@ -140,6 +144,8 @@ function App() {
         getDataForModal={getDataForModal}
         onOpen={() => setIsOpen(true)}
         search={search}
+        updateURL={updateURL}
+        nextUrl={nextUrl}
       />
       <EventModal
         getTime={getTime}
