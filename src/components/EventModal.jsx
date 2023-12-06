@@ -30,7 +30,7 @@ function EventModal({
             <h2 className="event-title">{modalData.name.fi}</h2>
             {locationInfo.neighborhood && (
               <div>
-                <h3>Paikka | Location</h3>
+                <h3>Alue | Neighborhood</h3>
                 <p>{locationInfo.neighborhood}</p>
               </div>
             )}
@@ -46,20 +46,30 @@ function EventModal({
             <h3>Hinta | Price</h3>
             <p>
               {modalData.offers[0].is_free
-                ? "Ilmainen | Free"
+                ? "Ilmainen - Free"
                 : modalData.offers[0].price.fi}
             </p>
             {locationInfo.website && (
-              <a href={locationInfo.website}>Link to the place</a>
+              <div>
+                <h3>Paikka | Venue</h3>
+                <a href={locationInfo.website}>Lue lisää - See more</a>
+              </div>
             )}
           </div>
         </div>
 
         <div className="description">
-          <h2>Kuvaus | Description</h2>
+          <h2>Kuvaus</h2>
           <div>{parse(modalData.description.fi)}</div>
+          {modalData.description.en && (
+            <div>
+              <h2>Description</h2>
+              <div>{parse(modalData.description.en)}</div>
+            </div>
+          )}
         </div>
         <div className="map">
+          <h4>{locationInfo.address}</h4>
           <Map locationInfo={locationInfo} />
         </div>
       </div>

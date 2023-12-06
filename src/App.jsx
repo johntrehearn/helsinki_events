@@ -23,8 +23,6 @@ function App() {
       .then((data) => setEvents(data.data)); //data.next gives next 20 events
   }, [url]);
 
-  // console.log(`URL state: ${url}`);
-
   // update url state
   const updateURL = (url) => setUrl(url);
 
@@ -32,12 +30,14 @@ function App() {
   const handleSearch = (e) => setSearch(e.target.value);
 
   // find matching data between card and modal
-  const getDataForModal = (id) => {
+  const getDataForModal = (id) =>
     setModalEventData(events.find((el) => el.id === id));
 
+  // call getLocationInfo when modalEventData state is not null anymore
+  useEffect(() => {
     if (modalEventData === null) return;
     getLocationInfo(modalEventData.location["@id"]);
-  };
+  }, [modalEventData]);
 
   //A function change the format of date to "dd-mm-yyyy"
   function modifyDate(dateStr) {
@@ -109,14 +109,10 @@ function App() {
 
         const locationInfo = {
           neighborhood: location[3],
-          streetAddress: locationData.street_address.fi,
-          city: locationData.address_locality.fi,
+          address: `${locationData.street_address.fi}, ${locationData.address_locality.fi}`,
           website: locationData.info_url.fi,
           mapURL: `${areaId[0]}?lat=${locationData.position.coordinates[0]}&lon=${locationData.position.coordinates[1]}`,
         };
-        /* console.log(
-          `https://palvelukartta.hel.fi/fi/embed/unit/${locationInfo.mapURL}`
-        ); */
 
         return locationInfo;
       } catch (error) {
