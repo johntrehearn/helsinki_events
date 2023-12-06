@@ -47,7 +47,8 @@
 }
 
 .banner input:focus,
-.banner select:focus {
+.banner select:focus,
+.banner button:focus {
   outline: 2px solid black;
 }
 

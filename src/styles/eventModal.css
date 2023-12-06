@@ -71,7 +71,7 @@
   font-size: 14px;
   color: #333;
   text-decoration: none;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   margin-left: 20px;
   display: block;
 }
@@ -86,7 +86,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  background-color: white;
+  background-color: #f7f7f7;
   color: #333;
   border-radius: 15px;
   width: 90%;
