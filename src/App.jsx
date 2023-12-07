@@ -135,7 +135,7 @@ function App() {
       <Header />
       <Banner onchange={handleSearch} updateURL={updateURL} />
       <CategorySection />
-      <Sidebar />
+      <Sidebar updateURL={updateURL}  />
       <CardsBucket
         getTime={getTime}
         getDate={getDate}
