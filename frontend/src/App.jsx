@@ -6,6 +6,7 @@ import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
 import Sidebar from "./components/Sidebar";
+import { SavedEvents } from './components/SavedEvents';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -135,6 +136,7 @@ function App() {
       <Header />
       <Banner onchange={handleSearch} updateURL={updateURL} />
       <CategorySection />
+      <SavedEvents/>
       <Sidebar updateURL={updateURL}  />
       <CardsBucket
         getTime={getTime}
