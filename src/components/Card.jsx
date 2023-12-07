@@ -1,15 +1,6 @@
 import "../styles/card.css";
 
-function Card({
-  name,
-  date,
-  time,
-  area,
-  onOpen,
-  getDataForModal,
-  id,
-  eventImgURL,
-}) {
+function Card({ name, date, time, onOpen, getDataForModal, id, eventImgURL }) {
   return (
     <div className="Card">
       <div
@@ -28,7 +19,7 @@ function Card({
             <span>{date}</span>
             <span>{time}</span>
           </div>
-          <p>{area}</p>
+          <p>{/* {area} */}</p>
         </div>
       </div>
     </div>

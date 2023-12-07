@@ -5,7 +5,7 @@ const Banner = ({ onchange, updateURL }) => {
   return (
     <div className="banner">
       <div className="img-wrap">
-        <div className="fade"></div>
+        {/* <div className="fade"></div> */}
         <img src="../event-bg.jpg" alt="audience" />
       </div>
 

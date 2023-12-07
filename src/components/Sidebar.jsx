@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import './Sidebar.css';
+import { useState } from "react";
+import "./Sidebar.css";
 
 /* npm install react-bootstrap-icons --save */
 
 /* import * as Icon from 'react-bootstrap-icons'; */
-import { Speedometer2 } from 'react-bootstrap-icons';
-import { ClipboardPulse } from 'react-bootstrap-icons';
-import { ChatSquare } from 'react-bootstrap-icons';
-import { Gear } from 'react-bootstrap-icons';
-import { Power } from 'react-bootstrap-icons';
-import { Justify } from 'react-bootstrap-icons';
+import { Speedometer2 } from "react-bootstrap-icons";
+import { ClipboardPulse } from "react-bootstrap-icons";
+import { ChatSquare } from "react-bootstrap-icons";
+import { Gear } from "react-bootstrap-icons";
+import { Power } from "react-bootstrap-icons";
+import { Justify } from "react-bootstrap-icons";
 
 function Sidebar({updateURL}) {
   const [navCollapse, setNavCollapse] = useState(true)
@@ -60,9 +60,7 @@ function Sidebar({updateURL}) {
       </div>
         
         </div>
-
       </div>
-        
     </div>
   );
 }

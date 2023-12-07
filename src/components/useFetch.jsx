@@ -1,33 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 const useFetch = (url) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
-        // fetch categorizes errors 400 and 500 as a success
-        // .ok categorizes only 200 as a succes
-        if (!response.ok) {
-          const msg = `There was an error: "${response.status} ${response.statusText}"`;
-          throw new Error(msg);
-        }
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok)
+          throw Error(
+            `There was an error: "${response.status} ${response.statusText}"`
+          );
+
         const data = await response.json();
         setData(data.data);
         setIsLoading(false);
+        setError(null);
       } catch (error) {
-        setIsError(true);
-        console.error(error);
+        if (error.name === "AbortError") return "fetch aborted";
+        setIsLoading(false);
+        setError(error.message);
       }
-      setIsLoading(false);
     };
-    fetchData();
-  }, [url]);
 
-  return { data, isLoading, isError };
+    fetchData();
+    return () => controller.abort();
+  }, [url]);
+  return { data, isLoading, error };
 };
 
 export default useFetch;
