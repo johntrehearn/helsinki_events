@@ -7,6 +7,7 @@ import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
 import Sidebar from "./components/Sidebar";
 import { SavedEvents } from "./components/SavedEvents";
+import axios from "axios";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +18,7 @@ function App() {
   );
   const [nextUrl, setNextUrl] = useState("");
   const [events, setEvents] = useState([]);
+  const [saved, setSaved] = useState([]);
   const [locationInfo, setLocationInfo] = useState({});
 
   useEffect(() => {
@@ -27,6 +29,12 @@ function App() {
         setNextUrl(data.meta.next);
       });
   }, [url]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5555/events").then((data) => {
+      setSaved(data.data.data);
+    });
+  }, []);
 
   // update url state
   const updateURL = (url) => setUrl(url);
@@ -113,15 +121,12 @@ function App() {
         const locationType = location.filter((el) => el !== null);
         const areaId = locationData.id?.match(/(\d+)/);
 
-        console.log(locationType);
         const locationInfo = {
           neighborhood: locationType[0],
           address: `${locationData.street_address?.fi}, ${locationData.address_locality?.fi}`,
           website: locationData.info_url?.fi,
           mapURL: `${areaId[0]}?lat=${locationData.position?.coordinates[0]}&lon=${locationData.position?.coordinates[1]}`,
         };
-
-        console.log(locationInfo.neighborhood);
 
         return locationInfo;
       } catch (error) {
@@ -135,12 +140,33 @@ function App() {
     );
   }
 
+  const handleSave = (modalData) => {
+    const newData = {
+      title: modalData.name.fi,
+    };
+
+    axios.post("http://localhost:5555/events", newData).then((response) => {
+      setSaved(saved.concat(response.data));
+    });
+  };
+
+  const handleRemove = (id) => {
+    console.log(id);
+
+    axios.delete(`http://localhost:5555/events/${id}`).then(() => {
+      // const arr = saved.filter((event) => event.id !== id);
+      // console.log(arr);
+
+      setSaved(saved.filter((event) => event.id !== id));
+    });
+  };
+
   return (
     <>
       <Header />
       <Banner onchange={handleSearch} updateURL={updateURL} />
       <CategorySection />
-      <SavedEvents />
+      <SavedEvents saved={saved} handleRemove={handleRemove} />
       <Sidebar updateURL={updateURL} />
       <CardsBucket
         getTime={getTime}
@@ -160,6 +186,7 @@ function App() {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         locationInfo={locationInfo}
+        handleSave={handleSave}
       />
       <Footer />
     </>
