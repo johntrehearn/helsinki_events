@@ -24,15 +24,15 @@ function App() {
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => {
-        setEvents(data.data);
-        setNextUrl(data.meta.next);
+      .then((response) => {
+        setEvents(response.data);
+        setNextUrl(response.meta.next);
       });
   }, [url]);
 
   useEffect(() => {
-    axios.get("http://localhost:5555/events").then((data) => {
-      setSaved(data.data.data);
+    axios.get("http://localhost:5555/events").then((response) => {
+      setSaved(response.data.data);
     });
   }, []);
 
@@ -151,14 +151,9 @@ function App() {
   };
 
   const handleRemove = (id) => {
-    console.log(id);
-
-    axios.delete(`http://localhost:5555/events/${id}`).then(() => {
-      // const arr = saved.filter((event) => event.id !== id);
-      // console.log(arr);
-
-      setSaved(saved.filter((event) => event.id !== id));
-    });
+    axios
+      .delete(`http://localhost:5555/events/${id}`)
+      .then(() => setSaved(saved.filter((event) => event._id !== id)));
   };
 
   return (
