@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const eventSchema = mongoose.Schema(
   {
-    title: {type: String, required: true},
+    title: { type: String, required: true },
   },
 
-  {timestamps: true}
+  { timestamps: true }
 );
 
-export const Event = mongoose.model('Event', eventSchema);
+export const Event = mongoose.model("Event", eventSchema);

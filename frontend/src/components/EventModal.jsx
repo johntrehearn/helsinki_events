@@ -10,6 +10,7 @@ function EventModal({
   getTime,
   getDate,
   locationInfo,
+  handleSave,
 }) {
   if (!open) return null;
 
@@ -61,6 +62,7 @@ function EventModal({
                 <a href={locationInfo.website}>Lue lisää - See more</a>
               </div>
             )}
+            <button onClick={() => handleSave(modalData)}>Save</button>
           </div>
         </div>
 
