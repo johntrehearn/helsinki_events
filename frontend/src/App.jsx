@@ -6,7 +6,7 @@ import Banner from "./components/Banner";
 import CategorySection from "./components/CategorySection";
 import CardsBucket from "./components/CardsBucket";
 import Sidebar from "./components/Sidebar";
-import { SavedEvents } from './components/SavedEvents';
+import { SavedEvents } from "./components/SavedEvents";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,23 +78,20 @@ function App() {
     let endTimeInt;
     let startTime;
     let endTime;
-    let time;
+    let time = " ";
 
-    if (endDateStr == null && startDateStr == null) {
-      time = "";
-      return time;
-    } else if (modifyDate(startDateStr) === modifyDate(endDateStr)) {
+    if (startDateStr) {
       startTimeInt = parseInt(startDateStr.slice(11, 13)) + 2;
       startTime = `${startTimeInt}${startDateStr.slice(13, 16)}`;
+      time += startTime;
+    }
+
+    if (endDateStr) {
       endTimeInt = parseInt(endDateStr.slice(11, 13)) + 2;
       endTime = `${endTimeInt}${endDateStr.slice(13, 16)}`;
-      time = ` ${startTime}-${endTime}`;
-      return time;
-    } else if (startDateStr != null && endDateStr == null) {
-      startTime = `${startTimeInt}:${startDateStr.slice(13, 16)}`;
-      time = ` ${startTime}`;
-      return time;
+      time += ` - ${endTime}`;
     }
+    return time;
   }
 
   // a function fetch location url and set location in state
@@ -105,19 +102,26 @@ function App() {
         if (!response.ok) return;
 
         const locationData = await response.json();
+        const location = locationData.divisions.map((el) => {
+          if (el.type === "neighborhood") {
+            return el.name.fi;
+          } else if (el.type === "muni") {
+            return el.name.fi;
+          }
+        });
 
-        const location = locationData.divisions.map((el) =>
-          el.type === "neighborhood" ? el.name.fi : ""
-        );
+        const locationType = location.filter((el) => el !== null);
+        const areaId = locationData.id?.match(/(\d+)/);
 
-        const areaId = locationData.id.match(/(\d+)/);
-
+        console.log(locationType);
         const locationInfo = {
-          neighborhood: location[3],
-          address: `${locationData.street_address.fi}, ${locationData.address_locality.fi}`,
-          website: locationData.info_url.fi,
-          mapURL: `${areaId[0]}?lat=${locationData.position.coordinates[0]}&lon=${locationData.position.coordinates[1]}`,
+          neighborhood: locationType[0],
+          address: `${locationData.street_address?.fi}, ${locationData.address_locality?.fi}`,
+          website: locationData.info_url?.fi,
+          mapURL: `${areaId[0]}?lat=${locationData.position?.coordinates[0]}&lon=${locationData.position?.coordinates[1]}`,
         };
+
+        console.log(locationInfo.neighborhood);
 
         return locationInfo;
       } catch (error) {
@@ -136,8 +140,8 @@ function App() {
       <Header />
       <Banner onchange={handleSearch} updateURL={updateURL} />
       <CategorySection />
-      <SavedEvents/>
-      <Sidebar updateURL={updateURL}  />
+      <SavedEvents />
+      <Sidebar updateURL={updateURL} />
       <CardsBucket
         getTime={getTime}
         getDate={getDate}
