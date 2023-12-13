@@ -4,18 +4,18 @@ html {
 
 .header a {
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
 }
 
 .header body {
-  background-color: rgb(184, 195, 195);
   font-family: "Lato", Helvetica, sans-serif;
   width: 100vw;
   height: 100vh;
 }
 
 .header {
-  background-color: rgb(201, 192, 194);
+  background-color: rgb(103, 98, 98);
+  color: whitesmoke;
   display: flex;
   position: sticky;
   top: 0;

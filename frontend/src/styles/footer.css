@@ -2,9 +2,16 @@
     position: absolute;
     width: 100vw;
     margin: 0;
-
-
-    background-color: rgb(184, 190, 183);
-    color: black;
+    text-align: center;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: rgb(103, 98, 98);
     
+    
+    
+  }
+
+  a {
+    color: whitesmoke;
+    margin: 10px;
   }

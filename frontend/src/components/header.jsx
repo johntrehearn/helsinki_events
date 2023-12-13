@@ -12,9 +12,9 @@ const Header = () => {
                 {/* click={() => mobile_menu()} */}
             </button>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about_the_project">About the project</a></li>
-                <li><a href="contact_us">Contact Us</a></li>
+              {/*   <li><a href="#home">Home</a></li>
+                <li><a href="#about_the_project">About the project</a></li> */}
+                <li><a href="#footer">Contact Us</a></li>
             </ul>
         </nav>
         </div>
