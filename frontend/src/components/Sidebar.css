@@ -1,29 +1,24 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
 
-/* .container {
-    background-color: pink;
-}
- */
-
-.navSide {
+/* .navSide {
     background-color: aqua;
     height: 60px;
     display: flex;
     justify-content: space-between;
     padding: 0px 20px;
     color: white;
-}
+} */
 
 .navSide h2 {
     cursor: pointer;
 }
 
-.navSide ul {
+/* .navSide ul {
     list-style-type: none;
     display: flex;
     align-items: center;
     gap: 20px;
-}
+} */
 
 .navSide ul li {
     cursor: pointer;
@@ -31,7 +26,7 @@
 
 /* sidebar */
 
-.sideMenuButton {
+/* .sideMenuButton {
     display: flex;
     align-items: center;
     font-size: 30px;
@@ -41,7 +36,7 @@
     gap: 25px;
     cursor: pointer;
 
-}
+} */
 
 .sidebar-container {
     position: absolute;
@@ -50,9 +45,9 @@
     position: fixed;
     background-color: rgb(103, 98, 98);
     color: white;
-    width: 250px;
-    height: calc(100vh - 140px);
-    border-radius: 10px;
+    /* width of uncollapsed side bar*/
+    width: 250px;    
+    border-radius: 15px;
    
 }
 
@@ -66,7 +61,7 @@
 .nav-option {
     display: flex;
     align-items: center;
-    padding: 10px 0px 20px 20px;
+    padding: 10px 0px 20px 10px;
     gap: 20px;
     width: 250px
     
@@ -92,9 +87,10 @@
 
 }
 
-@media screen and (min-width:768px){
+@media screen /* and (min-width:768px) */{
     .navCollapse {
-        width: 80px;
+        /* width of nav collapsed side bar */
+        width: 50px;
     }
 
     .navCollapse .nav-option h3 {
@@ -102,7 +98,7 @@
     }
 
     .navCollapse .nav-option {
-        padding: 28px;
+        padding: 15px;
     }
 
     
