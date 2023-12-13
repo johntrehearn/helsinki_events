@@ -15,7 +15,7 @@ function CardsBucket({
 
   return (
     <div className="cardsBucket">
-      <h2>EVENTS</h2>
+      <h2 className="title">EVENTS</h2>
       <div className="eventCardsBucket">
         {data
           .filter((elem) => {
@@ -44,12 +44,11 @@ function CardsBucket({
               getDataForModal={getDataForModal}
             />
           ))}
-
-        <div>
-          <button onClick={() => updateURL(nextUrl)}>
-            Seuraava sivu | Next page
-          </button>
-        </div>
+      </div>
+      <div className="button">
+        <button onClick={() => updateURL(nextUrl)}>
+          Seuraava sivu | Next page
+        </button>
       </div>
     </div>
   ); //end of return

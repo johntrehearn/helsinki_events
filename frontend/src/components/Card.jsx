@@ -11,6 +11,7 @@ function Card({ name, date, time, onOpen, getDataForModal, id, eventImgURL }) {
         }}
       >
         <img src={eventImgURL} alt={name} className="eventCardImg"></img>
+
         <div className="eventCardDetails">
           <h2>
             <span>{name}</span>

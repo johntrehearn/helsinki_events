@@ -3,7 +3,7 @@ import "../styles/savedEvents.css";
 export const SavedEvents = ({ saved, handleRemove }) => {
   return (
     <div className="savedEvents">
-      <h2>Saved Events</h2>
+      <h2>SAVED EVENTS</h2>
       {saved.map((event) => (
         <div key={event.title}>
           <div className="flex">

@@ -120,8 +120,6 @@ function App() {
         const area = location.neighbor ? location.neighbor : location.muni;
         const areaId = locationData.id?.match(/(\d+)/);
 
-        console.log(area);
-
         const locationInfo = {
           neighborhood: area,
           address: `${locationData.street_address?.fi}, ${locationData.address_locality?.fi}`,
