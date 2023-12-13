@@ -110,19 +110,18 @@ function App() {
         if (!response.ok) return;
 
         const locationData = await response.json();
-        const location = locationData.divisions.map((el) => {
-          if (el.type === "neighborhood") {
-            return el.name.fi;
-          } else if (el.type === "muni") {
-            return el.name.fi;
-          }
-        });
+        const location = {
+          muni: locationData.divisions[0].name.fi,
+          neighbor: locationData.divisions[3]?.name.fi,
+        };
 
-        const locationType = location.filter((el) => el !== null);
+        console.log(location);
+
+        const area = location.neighbor ? location.neighbor : location.muni;
         const areaId = locationData.id?.match(/(\d+)/);
 
         const locationInfo = {
-          neighborhood: locationType[0],
+          neighborhood: area,
           address: `${locationData.street_address?.fi}, ${locationData.address_locality?.fi}`,
           website: locationData.info_url?.fi,
           mapURL: `${areaId[0]}?lat=${locationData.position?.coordinates[0]}&lon=${locationData.position?.coordinates[1]}`,

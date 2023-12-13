@@ -49,6 +49,20 @@
   text-wrap: balance; /* only some browser support */
 }
 
+.modal button {
+  border: none;
+  padding: 8px 16px;
+  background-color: #333;
+  color: white;
+  transition: all ease 0.15s;
+
+  border-radius: 5px;
+}
+
+.modal button:hover {
+  opacity: 0.7;
+}
+
 .modal h2,
 .modal p {
   padding-bottom: 20px;
@@ -74,6 +88,7 @@
   padding-bottom: 30px;
   margin-left: 20px;
   display: block;
+  transition: all ease 0.15s;
 }
 
 .modal a:hover {

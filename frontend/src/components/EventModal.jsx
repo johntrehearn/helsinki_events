@@ -24,7 +24,7 @@ function EventModal({
       <div className="modal">
         <div className="flex-container">
           <div className="img-wrap">
-            <img src={modalData.images[0].url} alt={modalData.name.fi} />
+            <img src={modalData.images[0]?.url} alt={modalData.name.fi} />
           </div>
 
           <div className="highlights">
@@ -74,12 +74,16 @@ function EventModal({
         </div>
 
         <div className="description">
-          <h2>Kuvaus</h2>
-          <div>{parse(modalData.description.fi)}</div>
+          {modalData.description.fi && (
+            <div>
+              <h2>Kuvaus</h2>
+              <div>{parse(modalData.description.fi)}</div>
+            </div>
+          )}
           {modalData.description.en && (
             <div>
               <h2>Description</h2>
-              <div>{parse(modalData.description.en)}</div>
+              <div>{parse(modalData.description?.en)}</div>
             </div>
           )}
         </div>
