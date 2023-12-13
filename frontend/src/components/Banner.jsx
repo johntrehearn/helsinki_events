@@ -1,7 +1,7 @@
 import "../styles/banner.css";
 import Search from "./Search";
 
-const Banner = ({ onchange, updateURL }) => {
+const Banner = ({ onchange /* , updateURL */ }) => {
   return (
     <div className="banner">
       <div className="img-wrap">
@@ -13,7 +13,7 @@ const Banner = ({ onchange, updateURL }) => {
         <div>
           <Search onchange={onchange} />
         </div>
-        <button
+        {/*  <button
           onClick={() =>
             updateURL("https://api.hel.fi/linkedevents/v1/event/?is_free=true")
           }
@@ -26,7 +26,7 @@ const Banner = ({ onchange, updateURL }) => {
           }
         >
           EVENTS IN ENGLISH
-        </button>
+        </button> */}
       </div>
     </div>
   );
