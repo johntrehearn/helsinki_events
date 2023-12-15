@@ -1,50 +1,70 @@
 import '../styles/categorySection.css'
 import sampleIcon from '../assets/nightlifeIcon.svg'
 
-function CategorySection() {
-    return (
+function CategorySection({updateURL}) {
+     return (
     <div className="categorySection">
         <div className='iconCategoryWrapper'>
-            <div className='iconCategoryCard'>
+            {/* CONCERT */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p11185')} >
                 <div className='iconCategoryCardImageWrapper'>
                     <img src={sampleIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Concerts
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* WELL-BEING */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p1947')} >
                 <div className='iconCategoryCardImageWrapper'>
                     <img src={sampleIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Well-being
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* EXHIBITIONS */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p5121')}>
                 <div className='iconCategoryCardImageWrapper'>
                     <img src={sampleIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Exhibitions
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* OUTDOOR */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p2771')}>
                 <div className='iconCategoryCardImageWrapper'>
                     <img src={sampleIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Outdoor
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* FAMILY */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword_OR_=yso:p13050,yso:p4354')}>
                 <div className='iconCategoryCardImageWrapper'>
                     <img src={sampleIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Family
                 </div>
             </div>
+
+            {/* TOURISTS */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p16596')}>
+                <div className='iconCategoryCardImageWrapper'>
+                    <img src={sampleIcon} alt='icon' />
+                </div>
+                <div className='iconCategoryCardTitle'>
+                    Tourists
+                </div>
+            </div>
+            
         </div>
     </div>
     )
