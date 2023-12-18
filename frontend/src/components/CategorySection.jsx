@@ -1,5 +1,13 @@
 import '../styles/categorySection.css'
-import sampleIcon from '../assets/nightlifeIcon.svg'
+
+//import icons 
+import concertIcon from '../assets/icons_categorySection/concert.svg'
+import exhibitionIcon from '../assets/icons_categorySection/exhibition.svg'
+import familyIcon from '../assets/icons_categorySection/family.svg'
+import foodIcon from '../assets/icons_categorySection/food.svg'
+import outdoorIcon from '../assets/icons_categorySection/outdoor.svg'
+import wellBeingIcon from '../assets/icons_categorySection/well-being.svg'
+/* import icons from bootstrap */
 
 function CategorySection({updateURL}) {
      return (
@@ -8,7 +16,7 @@ function CategorySection({updateURL}) {
             {/* CONCERT */}
             <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p11185')} >
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={concertIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
                     Concerts
@@ -18,7 +26,7 @@ function CategorySection({updateURL}) {
             {/* WELL-BEING */}
             <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p1947')} >
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={wellBeingIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
                     Well-being
@@ -28,7 +36,7 @@ function CategorySection({updateURL}) {
             {/* EXHIBITIONS */}
             <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p5121')}>
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={exhibitionIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
                     Exhibitions
@@ -38,7 +46,7 @@ function CategorySection({updateURL}) {
             {/* OUTDOOR */}
             <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p2771')}>
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={outdoorIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
                     Outdoor
@@ -48,7 +56,7 @@ function CategorySection({updateURL}) {
             {/* FAMILY */}
             <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword_OR_=yso:p13050,yso:p4354')}>
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={familyIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
                     Family
@@ -56,12 +64,12 @@ function CategorySection({updateURL}) {
             </div>
 
             {/* TOURISTS */}
-            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p16596')}>
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p3670')}>
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={foodIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Tourists
+                    Food
                 </div>
             </div>
             
