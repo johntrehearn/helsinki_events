@@ -7,7 +7,7 @@ import familyIcon from '../assets/icons_categorySection/family.svg'
 import foodIcon from '../assets/icons_categorySection/food.svg'
 import outdoorIcon from '../assets/icons_categorySection/outdoor.svg'
 import wellBeingIcon from '../assets/icons_categorySection/well-being.svg'
-/* import icons from bootstrap */
+
 
 function CategorySection({updateURL}) {
      return (

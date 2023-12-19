@@ -33,3 +33,8 @@
   padding: 13px 8px 12px 12px;
   border-radius: 17px;
 }
+
+.Card .detail {
+  font-weight: 500;
+  color: rgb(68, 67, 67);
+}
