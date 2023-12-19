@@ -46,7 +46,7 @@ function EventModal({
                   : getTime(modalData.start_time, modalData.end_time)
               }`}
             </p>
-            {modalData.offers[0].is_free && (
+            {modalData.offers[0]?.is_free && (
               <div>
                 <h3>Hinta | Price</h3>
                 <p>

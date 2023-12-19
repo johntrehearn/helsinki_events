@@ -1,6 +1,6 @@
 .Card .eventCard {
   width: 20rem;
-  height: 30rem;
+  min-height: 30rem;
   flex-shrink: 0;
   border-radius: 17px;
   background-color: #f2f2f2;
@@ -32,4 +32,9 @@
   flex-shrink: 0;
   padding: 13px 8px 12px 12px;
   border-radius: 17px;
+}
+
+.Card .detail {
+  font-weight: 500;
+  color: rgb(68, 67, 67);
 }

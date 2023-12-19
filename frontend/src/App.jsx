@@ -97,7 +97,9 @@ function App() {
     if (endDateStr) {
       endTimeInt = parseInt(endDateStr.slice(11, 13)) + 2;
       endTime = `${endTimeInt}${endDateStr.slice(13, 16)}`;
-      time += ` - ${endTime}`;
+      if (endTime != 'NaN') {
+        time += ` - ${endTime}`
+      }
     }
     return time;
   }
@@ -114,8 +116,6 @@ function App() {
           muni: locationData.divisions[0].name.fi,
           neighbor: locationData.divisions[3]?.name.fi,
         };
-
-        console.log(location);
 
         const area = location.neighbor ? location.neighbor : location.muni;
         const areaId = locationData.id?.match(/(\d+)/);
@@ -159,7 +159,7 @@ function App() {
     <>
       <Header />
       <Banner onchange={handleSearch} updateURL={updateURL} />
-      <CategorySection />
+      <CategorySection updateURL={updateURL} />
       <SavedEvents saved={saved} handleRemove={handleRemove} />
       <Sidebar updateURL={updateURL} />
       <CardsBucket

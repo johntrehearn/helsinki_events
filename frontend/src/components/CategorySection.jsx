@@ -1,50 +1,78 @@
 import '../styles/categorySection.css'
-import sampleIcon from '../assets/nightlifeIcon.svg'
 
-function CategorySection() {
-    return (
+//import icons 
+import concertIcon from '../assets/icons_categorySection/concert.svg'
+import exhibitionIcon from '../assets/icons_categorySection/exhibition.svg'
+import familyIcon from '../assets/icons_categorySection/family.svg'
+import foodIcon from '../assets/icons_categorySection/food.svg'
+import outdoorIcon from '../assets/icons_categorySection/outdoor.svg'
+import wellBeingIcon from '../assets/icons_categorySection/well-being.svg'
+
+
+function CategorySection({updateURL}) {
+     return (
     <div className="categorySection">
         <div className='iconCategoryWrapper'>
-            <div className='iconCategoryCard'>
+            {/* CONCERT */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p11185')} >
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={concertIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Concerts
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* WELL-BEING */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p1947')} >
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={wellBeingIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Well-being
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* EXHIBITIONS */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p5121')}>
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={exhibitionIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Exhibitions
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* OUTDOOR */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p2771')}>
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={outdoorIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Outdoor
                 </div>
             </div>
-            <div className='iconCategoryCard'>
+
+            {/* FAMILY */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword_OR_=yso:p13050,yso:p4354')}>
                 <div className='iconCategoryCardImageWrapper'>
-                    <img src={sampleIcon} alt='icon' />
+                    <img src={familyIcon} alt='icon' />
                 </div>
                 <div className='iconCategoryCardTitle'>
-                    Nightlife
+                    Family
                 </div>
             </div>
+
+            {/* TOURISTS */}
+            <div className='iconCategoryCard' onClick={() => updateURL('https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p3670')}>
+                <div className='iconCategoryCardImageWrapper'>
+                    <img src={foodIcon} alt='icon' />
+                </div>
+                <div className='iconCategoryCardTitle'>
+                    Food
+                </div>
+            </div>
+            
         </div>
     </div>
     )
