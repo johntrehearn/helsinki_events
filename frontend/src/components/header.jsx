@@ -1,14 +1,12 @@
 import "../styles/header.css";
 import Search from "./Search";
 
-const Header = () => {
+const Header = ({ onchange }) => {
   return (
     <div>
       <div className="header">
         <h1>Helsinki Events</h1>
-        <div className="inputs">
-          <Search onchange={onchange} />
-        </div>
+        <Search onchange={onchange} />
         <nav>
           {/*  Button for mobile menu */}
           <button className="mobile">
