@@ -24,7 +24,7 @@
   height: 500px;
 }
 
-.banner .inputs {
+/* .banner .inputs {
   position: absolute;
   left: 5%;
   top: 22%;
@@ -33,9 +33,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
+} */
 
-.banner input,
+/* .banner input, */
 .banner select {
   width: 300px;
   border: none;
