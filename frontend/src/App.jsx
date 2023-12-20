@@ -97,8 +97,8 @@ function App() {
     if (endDateStr) {
       endTimeInt = parseInt(endDateStr.slice(11, 13)) + 2;
       endTime = `${endTimeInt}${endDateStr.slice(13, 16)}`;
-      if (endTime != 'NaN') {
-        time += ` - ${endTime}`
+      if (endTime != "NaN") {
+        time += ` - ${endTime}`;
       }
     }
     return time;
@@ -157,8 +157,8 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Banner onchange={handleSearch} updateURL={updateURL} />
+      <Header onchange={handleSearch} />
+      <Banner updateURL={updateURL} />
       <CategorySection updateURL={updateURL} />
       <SavedEvents saved={saved} handleRemove={handleRemove} />
       <Sidebar updateURL={updateURL} />
